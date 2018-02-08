@@ -2,8 +2,8 @@
 
 (This README will be updated along with bot updates)
 
-## Features:
-<h5>
+<h3>
+<details style="font-size=30px;"><summary><u>Features:</u></summary>
 
 * Hash bot displays current network Raven Netowrk Stats. 
 
@@ -39,7 +39,8 @@
 
 * Dynamic plugin loading with permission support.
 
-</h5>
+</details>
+</h3>
 
 ## Requirements
 
