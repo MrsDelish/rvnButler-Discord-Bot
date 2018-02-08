@@ -5,14 +5,37 @@
 ## Features:
 <h5>
 
-* Hash bot displays current network Raven Netowrk Stats. Responds to `!hash`
+* Hash bot displays current network Raven Netowrk Stats. 
 
-* Purge Bot (moderator only) deletes X amount of messages. Responds to `!purge
-  <X>`
+   Responds to `!hash`
+
+* Balance bot Displays balance of supplied Raven Address
+
+   Responds to `!balance ADDRESS`
+   
+* Pools bot displays pools on the raven network
+
+   Responds to `!pools`
+
+* Purge Bot deletes X amount of messages. 
+
+  (moderator only) Responds to `!purge 5`
 
 * Welcome bot sends Direct Message when new users join,
 
-  (moderator only) Responds to `!welcome <@username>`
+   (moderator only) Responds to `!welcome @USERNAME`
+  
+* Role setter bot allows users to set specific roles for themselves 
+
+   (specified in the config!)
+
+   Responds to `!roles`, `!addrole ROLE`, `!delrole ROLE`
+  
+* helpful commands bot displays helpful commands you can use.
+
+   (set in the commands.json)
+   
+   Responds to `!helpcommands`
 
 * Dynamic plugin loading with permission support.
 
