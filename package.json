@@ -1,0 +1,38 @@
+{
+  "dependencies": {
+    "ansicolor": "^1.1.71",
+    "as-table": "^1.0.31",
+    "bitcoin": "^3.0.1",
+    "ccxt": "^1.10.579",
+    "chrono-node": "^1.3.5",
+    "config": "^1.27.0",
+    "discord.js": "^11.2.1",
+    "elmadev-discord-irc": "^2.4.1",
+    "embed-creator": "^1.1.4",
+    "jsonpath": "^0.2.12",
+    "moment": "^2.19.1",
+    "needle": "^2.0.1",
+    "node-config": "^0.0.2",
+    "numeral": "^2.0.6",
+    "ololog": "^1.1.83",
+    "request": "^2.83.0",
+    "sleep": "^5.1.1",
+    "wget": "^0.0.1"
+  },
+  "scripts": {
+    "prettier": "prettier * --write",
+    "lint": "prettier --write bot/**/*.js",
+    "precommit": "prettier --write bot/**/*.js"
+  },
+  "devDependencies": {
+    "husky": "^0.14.3",
+    "prettier": "1.8.1"
+  },
+  "name": "rvn-discord-bot",
+  "version": "0.0.1",
+  "description": "rvn discrod bot",
+  "main": "app.js",
+  "repository": "https://github.com/MSFTserverrvn-discord-bot",
+  "author": "MSFTserver <msftserver@gmail.com>",
+  "license": "MIT"
+}

@@ -1,0 +1,34 @@
+{
+  // Bot configuration
+  "bot": {
+      "token":"Bot-Token",
+      "prefix": "!",
+      "debug": true
+  },
+  "moderation":{
+  "perms": ["Community Admin","RVNMOD","BOTS"], // Roles that have access to all commands.
+  "logchannel": "410638358390243340" // Channel to log the bots moderation..
+  },
+    //define channels for Commands.js usage
+   "Channels":{
+	  "mining": "405866260379992064",
+  },
+   "pricebot":{
+  	"channels": ["405866572612370442","409219997735452672"],
+	  "mainchannel": "405866572612370442"
+  },
+   "networkbot":{
+  	"channels": ["405866260379992064","409219997735452672"], // Channels Hash Bot is allowed to post in
+	  "mainchannel" : "405866260379992064" // Main Hash Bot channel for directing with help message
+  },
+   "statsbot":{
+  	"channels": ["405866572612370442","409219997735452672"], // Channels Hash Bot is allowed to post in
+	  "mainchannel" : "405866572612370442" // Main Hash Bot channel for directing with help message
+  },
+  "rolelist":{
+    "allowedroles": ["RVN-Miner","RVN-Trader","RVN-Hodler","RVN-Gambler"]
+  },
+  "poolsbot":{
+    "channels": ["409219997735452672","405867573897592842","405866260379992064"]
+  }
+}

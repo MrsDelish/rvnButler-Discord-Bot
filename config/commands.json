@@ -1,0 +1,34 @@
+{
+    "!helpcommands": {
+        "usage": "",
+        "description": "Displays Helpful Commands",
+        "operation": "none",
+        "bundle": {
+            "url": "",
+            "title": "",
+            "description": "filled at runtime",
+            "color": 7976557,
+            "author": {
+                "name": "List of Helpful Raven Discord Commands",
+                "url": "",
+                "icon_url": "https://i.imgur.com/ZoakSOl.png"
+            }
+        }
+    },
+    "!donate": {
+        "usage": "",
+        "description": "Raven Donations!",
+        "operation": "send",
+        "bundle": {
+            "url": "",
+            "title": "",
+            "description": "Development Donation Address: [RT2r9oGxQxbVE1Ji5p5iPgrqpNQLfc8ksH](http://threeeyed.info/address/RT2r9oGxQxbVE1Ji5p5iPgrqpNQLfc8ksH)\n100% of collected funds will be used for things like new pools, added network tools for RVN, new mining clients, and further code development.\n\nMarketing Donation Address: [RNwtuuLL1YCCHQhwY3nAoGqNkd1LSQFA1G](http://threeeyed.info/address/RNwtuuLL1YCCHQhwY3nAoGqNkd1LSQFA1G)\n100% of collected funds will be used for things like running ads, translations, graphics, videos, and any other applicable needs.\n",
+            "color": 7976557,
+            "author": {
+                "name": "Raven Donations!",
+                "url": "",
+                "icon_url": "https://i.imgur.com/yWf5USu.png"
+            }
+        }
+    }
+}
