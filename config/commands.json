@@ -30,5 +30,69 @@
                 "icon_url": "https://i.imgur.com/yWf5USu.png"
             }
         }
+    },
+    "!mining": {
+        "usage": "",
+        "description": "how to mine Ravencoin?",
+        "operation": "send",
+        "bundle": {
+            "url": "",
+            "title": "",
+            "description": "if you are wondering how to get started mining Ravencoin(RVN) check out [This Guide](https://virtopia.ca/how-to-mine-ravencoin-rvn/)",
+            "color": 7976557,
+            "author": {
+                "name": "how to mine Ravencoin?",
+                "url": "https://virtopia.ca/how-to-mine-ravencoin-rvn/",
+                "icon_url": "https://i.imgur.com/yWf5USu.png"
+            }
+        }
+    },
+    "!bct": {
+        "usage": "",
+        "description": "Bitcointalk ANN Thread",
+        "operation": "send",
+        "bundle": {
+            "url": "",
+            "title": "",
+            "description": "check our Bitcointalk Announcement Thread\nhttps://bitcointalk.org/index.php?topic=2752467.0",
+            "color": 7976557,
+            "author": {
+                "name": "Bitcointalk ANN Thread",
+                "url": "https://bitcointalk.org/index.php?topic=2752467.0",
+                "icon_url": "https://i.imgur.com/yWf5USu.png"
+            }
+        }
+    },
+    "!whitepaper": {
+        "usage": "",
+        "description": "x16r Whitepaper",
+        "operation": "send",
+        "bundle": {
+            "url": "",
+            "title": "",
+            "description": "the whitepaper on the x16r algorithm\nhttps://ravencoin.org/wp-content/uploads/2018/01/X16R-Whitepaper.pdf",
+            "color": 7976557,
+            "author": {
+                "name": "x16r Whitepaper",
+                "url": "https://ravencoin.org/wp-content/uploads/2018/01/X16R-Whitepaper.pdf",
+                "icon_url": "https://i.imgur.com/yWf5USu.png"
+            }
+        }
+    },
+    "!nodes": {
+        "usage": "",
+        "description": "Ravencoin Network Nodes",
+        "operation": "send",
+        "bundle": {
+            "url": "",
+            "title": "",
+            "description": "here is a list of active nodes on the Ravencoin Network \nhttps://ravencoin.org/wp-content/uploads/2018/01/X16R-Whitepaper.pdf",
+            "color": 7976557,
+            "author": {
+                "name": "Ravencoin Network Nodes",
+                "url": "http://threeeyed.info/network",
+                "icon_url": "https://i.imgur.com/yWf5USu.png"
+            }
+        }
     }
 }
