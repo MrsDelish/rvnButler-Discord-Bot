@@ -47,7 +47,7 @@
             }
         }
     },
-    "!bct": {
+    "!ann": {
         "usage": "",
         "description": "Bitcointalk ANN Thread",
         "operation": "send",
@@ -86,7 +86,7 @@
         "bundle": {
             "url": "",
             "title": "",
-            "description": "here is a list of active nodes on the Ravencoin Network \nhttps://ravencoin.org/wp-content/uploads/2018/01/X16R-Whitepaper.pdf",
+            "description": "here is a list of active nodes on the Ravencoin Network \nhttp://threeeyed.info/network",
             "color": 7976557,
             "author": {
                 "name": "Ravencoin Network Nodes",
