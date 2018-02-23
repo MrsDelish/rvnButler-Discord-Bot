@@ -87,7 +87,7 @@ function checkMessageForCommand(msg, isEdit) {
     }
     let alias = aliases[cmdTxt];
     if (alias) {
-      var cmd = alias;
+	  var cmd = commands[alias];
     } else {
       var cmd = commands[cmdTxt];
     }
