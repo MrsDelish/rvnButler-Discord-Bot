@@ -4,6 +4,7 @@
 const Discord = require('discord.js');
 // Load config!
 let config = require('config');
+let LogChannel = config.get('moderation').logchannel;
 config = config.get('bot');
 
 //load modules
@@ -63,9 +64,7 @@ function checkMessageForCommand(msg, isEdit) {
     console.log(
       'treating ' +
         msg.content +
-        ' from UserID:' +
-        msg.author +
-        ' || UserName: ' +
+        ' from UserName: ' +
         msg.author.username +
         ' as command'
     );
@@ -87,7 +86,7 @@ function checkMessageForCommand(msg, isEdit) {
     }
     let alias = aliases[cmdTxt];
     if (alias) {
-	  var cmd = commands[alias];
+      var cmd = commands[alias];
     } else {
       var cmd = commands[cmdTxt];
     }
@@ -156,7 +155,7 @@ function checkMessageForCommand(msg, isEdit) {
         if (config.debug) {
           msgTxt += '\n' + e.stack;
         }
-        msg.channel.send(msgTxt);
+        bot.channels.get(LogChannel).send(msgTxt);
       }
     } else {
       return;

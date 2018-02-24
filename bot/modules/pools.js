@@ -15,8 +15,9 @@ exports.pools = {
         .then(message => message.delete(5000));
     } else {
       var Pool1 =
-        '**[three eyed](http://pool.threeeyed.info/)** :\n' +
-        '  STRATUM-URL: stratum+tcp://pool.threeeyed.info:3333\n';
+        '**[Mining Panda](https://miningpanda.site/)** :\n' +
+        '  STRATUM-URL: stratum+tcp://miningpanda.site:3636\n' +
+        '  Extra Config: -p c=RVN\n';
       var Pool2 =
         '**[rvn pool](https://rvnpool.com/)** :\n' +
         '  STRATUM-URL: stratum+tcp://rvnpool.com:3333\n';
@@ -24,9 +25,8 @@ exports.pools = {
         '**[Mine Pool](https://www.minepool.com/)** :\n' +
         '  STRATUM-URL: stratum+tcp://minepool.com:3636\n';
       var Pool4 =
-        '**[Mining Panda](https://miningpanda.site/)** :\n' +
-        '  STRATUM-URL: stratum+tcp://miningpanda.site:3636\n' +
-        '  Extra Config: -p c=RVN\n';
+        '**[three eyed](http://pool.threeeyed.info/)** :\n' +
+        '  STRATUM-URL: stratum+tcp://pool.threeeyed.info:3333\n';
       var Pool5 =
         '**[Crypto pool Party](https://cryptopool.party/)** :\n' +
         '  STRATUM-URL: stratum+tcp://cryptopool.party:3636\n' +
@@ -90,10 +90,11 @@ exports.pools = {
         var Pool = Pool5;
       }
       if (
-        messagetext == 'mining panda' ||
-        messagetext == 'miningpanda' ||
-        messagetext == 'panda' ||
-        messagetext == 'miningpanda.site'
+        messagetext == 'three eyed' ||
+        messagetext == 'threeeyed' ||
+        messagetext == '3eyed' ||
+        messagetext == 'pool.threeeyed' ||
+        messagetext == 'pool.threeeyed.info'
       ) {
         var Pool = Pool4;
       }
@@ -112,11 +113,10 @@ exports.pools = {
         var Pool = Pool2;
       }
       if (
-        messagetext == 'three eyed' ||
-        messagetext == 'threeeyed' ||
-        messagetext == '3eyed' ||
-        messagetext == 'pool.threeeyed' ||
-        messagetext == 'pool.threeeyed.info'
+        messagetext == 'mining panda' ||
+        messagetext == 'miningpanda' ||
+        messagetext == 'panda' ||
+        messagetext == 'miningpanda.site'
       ) {
         var Pool = Pool1;
       }

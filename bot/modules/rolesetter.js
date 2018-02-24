@@ -2,12 +2,10 @@ let config = require('config');
 let botconfig = config.get('bot');
 let rolelist = config.get('rolelist');
 let inPrivate = require('../helpers.js').inPrivate;
+let inSpam = require('../helpers.js').inSpam;
+let ChannelID = config.get('Channels').botspam;
 
-exports.commands = [
-  'addrole', // command that is in this file, every command needs it own export as shown below
-  'delrole',
-  'roles'
-];
+exports.commands = ['addrole', 'delrole', 'roles'];
 
 exports.addrole = {
   usage: '<role>',
@@ -17,16 +15,16 @@ exports.addrole = {
       msg.channel.send("You Cant set roles In DM's!");
       return;
     }
-    // Here the bot,msg and suffix is avaible, this function can be async if needed.
+    if (!inSpam(msg)) {
+      msg.channel.send(
+        'please use <#' + ChannelID + '> to talk to RoleSetter Bot'
+      );
+      return;
+    }
     var newrole = msg.guild.roles.find('name', suffix);
-
-    // Checks if the user put a role in the message.
     if (suffix) {
-      // Checks if the role mentioned in the message is in the allowed roles listed in the wunderbot config.
       if (rolelist.allowedroles.includes(suffix)) {
-        // Checks if the role even exists in the discord server
         if (newrole !== null) {
-          // Checks if the member has the role that they are trying to add
           if (!msg.member.roles.find('name', suffix)) {
             msg.member
               .addRole(newrole)
@@ -36,11 +34,7 @@ exports.addrole = {
                 )
               );
           } else {
-            msg.channel.send(
-              'It seems that you already have that role! Try removing it first with the ' +
-                botconfig.prefix +
-                'delrole command!'
-            );
+            msg.channel.send('It seems that you already have that role!');
           }
         } else {
           msg.channel.send(
@@ -71,15 +65,16 @@ exports.delrole = {
       msg.channel.send("You Cant set roles In DM's!");
       return;
     }
-    // Here the bot,msg and suffix is avaible, this function can be async if needed.
+    if (!inSpam(msg)) {
+      msg.channel.send(
+        'please use <#' + ChannelID + '> to talk to RoleSetter Bot'
+      );
+      return;
+    }
     let oldrole = msg.guild.roles.find('name', suffix);
-    // Checks if the user put a role in the message.
     if (suffix) {
-      // Checks if the role mentioned in the message is in the allowed roles listed in the wunderbot config.
       if (rolelist.allowedroles.includes(suffix)) {
-        // Checks if the role even exists in the discord server
         if (oldrole !== null) {
-          // Checks if the member has the role that they are trying to add
           if (msg.member.roles.find('name', suffix)) {
             msg.member
               .removeRole(oldrole)
@@ -124,7 +119,12 @@ exports.roles = {
       msg.channel.send("You Cant set roles In DM's!");
       return;
     }
-    // Here the bot,msg and suffix is avaible, this function can be async if needed.
+    if (!inSpam(msg)) {
+      msg.channel.send(
+        'please use <#' + ChannelID + '> to talk to RoleSetter Bot'
+      );
+      return;
+    }
     msg.channel.send({
       embed: {
         color: 3447003,
@@ -142,7 +142,6 @@ exports.roles = {
         }
       }
     });
-    //msg.channel.send(JSON.stringify(rolelist.allowedroles));
   }
 };
 

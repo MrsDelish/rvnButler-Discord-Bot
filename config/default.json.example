@@ -12,6 +12,7 @@
     //define channels for Commands.js usage
    "Channels":{
 	  "mining": "405866260379992064",
+    "botspam": "409219997735452672"
   },
    "pricebot":{
   	"channels": ["405866572612370442","409219997735452672"],
@@ -26,7 +27,7 @@
 	  "mainchannel" : "405866572612370442" // Main Hash Bot channel for directing with help message
   },
   "rolelist":{
-    "allowedroles": ["RVN-Miner","RVN-Trader","RVN-Hodler","RVN-Gambler"]
+    "allowedroles": ["miner","trader","hodler","gambler","rain","trivia"]
   },
   "poolsbot":{
     "channels": ["409219997735452672","405867573897592842","405866260379992064"]

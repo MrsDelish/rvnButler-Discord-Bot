@@ -1,5 +1,6 @@
 let config = require('config');
 let permRanks = config.get('moderation');
+let spamChannels = config.get('Channels').botspam;
 let priceBotChannels = config.get('pricebot');
 let hashBotChannels = config.get('hashbot');
 let statsBotChannels = config.get('statsbot');
@@ -13,6 +14,11 @@ exports.hasPerms = function(msg) {
 // Check if command was sent in dm
 exports.inPrivate = function(msg) {
   return msg.channel.type == 'dm';
+};
+
+// Checks if Message was sent from a channel in priceBot Channels list
+exports.inSpam = function(msg) {
+  return spamChannels == msg.channel.id;
 };
 
 // Checks if Message was sent from a channel in priceBot Channels list
