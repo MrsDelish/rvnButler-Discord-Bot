@@ -16,7 +16,7 @@ exports.inPrivate = function(msg) {
   return msg.channel.type == 'dm';
 };
 
-// Checks if Message was sent from a channel in priceBot Channels list
+// Checks if Message was sent from a channel in spam Channel
 exports.inSpam = function(msg) {
   return spamChannels == msg.channel.id;
 };
