@@ -25,8 +25,8 @@ exports.pools = {
         '**[Mine Pool](https://www.minepool.com/)** :\n' +
         '  STRATUM-URL: stratum+tcp://minepool.com:3636\n';
       var Pool4 =
-        '**[three eyed](http://pool.threeeyed.info/)** :\n' +
-        '  STRATUM-URL: stratum+tcp://pool.threeeyed.info:3333\n';
+        '**[three eyed](http://mine.threeeyed.info/)** :\n' +
+        '  STRATUM-URL: stratum+tcp://stratum.threeeyed.info:3333\n';
       var Pool5 =
         '**[Crypto pool Party](https://cryptopool.party/)** :\n' +
         '  STRATUM-URL: stratum+tcp://cryptopool.party:3636\n' +
@@ -43,6 +43,15 @@ exports.pools = {
         '**[suprnova](https://rvn.suprnova.cc/)** :\n' +
         '  STRATUM-URL: stratum+tcp://rvn.suprnova.cc:6666\n' +
         '  High Diff Port: 6667\n';
+      var Pool9 =
+        '**[masterhash](https://pool.masterhash.us)** :\n' +
+        '  STRATUM-URL: stratum+tcp://pool.masterhash.us:10023\n' +
+        '  Extra Config: -p c=RVN\n' +
+        '  Nice Hash Port: 20023\n';
+      var Pool10 =
+        '**[noip](http://pool.noip.ro/)** :\n' +
+        '  STRATUM-URL: stratum+tcp://pool.noip.ro:3636\n' +
+        '  Extra Config: -p c=RVN\n';
       var PoolEX = '**EXAMPLE:**\n`-o STRATUM-URL:PORT -u WALLET/LOGIN`';
       var messagetext = suffix.toLowerCase();
       if (!messagetext) {
@@ -55,7 +64,30 @@ exports.pools = {
           Pool6 +
           Pool7 +
           Pool8 +
+          Pool9 +
+          Pool10 +
           PoolEX;
+      }
+      if (
+        messagetext == 'noip' ||
+        messagetext == 'noip ro' ||
+        messagetext == 'pool noip' ||
+        messagetext == 'pool.noip' ||
+        messagetext == 'noip.ro' ||
+        messagetext == 'pool noip ro' ||
+        messagetext == 'pool.noip.ro'
+      ) {
+        var Pool = Pool10;
+      }
+      if (
+        messagetext == 'masterhash us' ||
+        messagetext == 'masterhash' ||
+        messagetext == 'pool.masterhash' ||
+        messagetext == 'masterhash.us' ||
+        messagetext == 'pool masterhash us' ||
+        messagetext == 'pool.masterhash.us'
+      ) {
+        var Pool = Pool9;
       }
       if (
         messagetext == 'suprnova' ||
