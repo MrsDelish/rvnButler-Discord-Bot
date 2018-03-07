@@ -23,7 +23,7 @@ exports.status = {
     var SitePort = words[1];
     if (!Site || !SitePort) {
       msg.channel.send(
-        'please provide a url and port to check\nExample: !status pool.threeeyed.info 3333'
+        'please provide a url and port to check\nExample: !status miningpanda.site 3636\n dont use : in the url, leave url and port seperataed by a space'
       );
       return;
     }

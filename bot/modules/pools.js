@@ -19,8 +19,8 @@ exports.pools = {
       '  Extra Config: -p c=RVN\n' +
       '  High Diff Port: 3666';
     var Pool2 =
-      '**[rvnpool](https://rvnpool.com/)** :\n' +
-      '  STRATUM-URL: stratum+tcp://rvnpool.com:3333\n';
+      '**[omegapool](https://www.omegapool.cc/)** :\n' +
+      '  STRATUM-URL: stratum+tcp://omegapool.cc:8006\n';
     var Pool3 =
       '**[minepool](https://www.minepool.com/)** :\n' +
       '  STRATUM-URL: stratum+tcp://minepool.com:3636\n';
@@ -63,11 +63,12 @@ exports.pools = {
       '**[gorogoro](https://gorogoro.asia/)** :\n' +
       '  STRATUM-URL: stratum+tcp://pool.gorogoro.asia:3636\n';
     var Pool14 =
-      '**[777pool](http://777pool.club/)** :\n' +
-      '  STRATUM-URL: stratum+tcp://777pool.club:3636\n';
+      '**[upthehash](https://upthehash.com/)** :\n' +
+      '  STRATUM-URL: stratum+tcp://upthehash.com:3636\n' +
+      '  Alt Stratum URL: stratum+tcp://35.227.115.143:3636';
     var Pool15 =
-      '**[omegapool](https://www.omegapool.cc/)** :\n' +
-      '  STRATUM-URL: stratum+tcp://omegapool.cc:8006\n';
+      '**[iampool](https://rvn.iampool.com/)** :\n' +
+      '  STRATUM-URL: stratum+tcp://rvn.iampool.com:3333\n';
     var Pool16 =
       '**[fubarpool](https://fubarpool.com/)** :\n' +
       '  STRATUM-URL: stratum+tcp://fubarpool.com:3636\n' +
@@ -130,13 +131,17 @@ exports.pools = {
         }
       }
       if (
-        messagetext == 'rvn pool' ||
-        messagetext == 'rvnpool' ||
-        messagetext == 'rvnpool.com'
+        messagetext == 'omegapool.cc' ||
+        messagetext == 'omegapoolcc' ||
+        messagetext == 'omegapool cc' ||
+        messagetext == 'omegapool' ||
+        messagetext == 'omega' ||
+        messagetext == 'omega pool' ||
+        messagetext == 'omega pool cc'
       ) {
         var Pool = Pool2;
-        var Poolname = 'rvnpool'
-        if (msg.channel.id == '417513282442625035') {
+        var Poolname = 'omegapool'
+        if (msg.channel.id == '418896775638941721') {
           embed.setAuthor(Poolname + " Options", "https://i.imgur.com/ZoakSOl.png")
           embed.setDescription(Pool)
           msg.channel.send({
@@ -233,7 +238,7 @@ exports.pools = {
       ) {
         var Pool = Pool7;
         var Poolname = 'hash4life'
-        if (msg.channel.id == '###') {
+        if (msg.channel.id == '420312077488619531') {
           embed.setAuthor(Poolname + " Options", "https://i.imgur.com/ZoakSOl.png")
           embed.setDescription(Pool)
           msg.channel.send({
@@ -358,16 +363,16 @@ exports.pools = {
         }
       }
       if (
-        messagetext == '777pool.club' ||
-        messagetext == '777poolclub' ||
-        messagetext == '777pool club' ||
-        messagetext == '777pool' ||
-        messagetext == '777 pool club' ||
-        messagetext == '777 pool'
+        messagetext == 'upthehash.com' ||
+        messagetext == 'upthehash com' ||
+        messagetext == 'upthehash' ||
+        messagetext == 'up the hash' ||
+        messagetext == 'up thehash' ||
+        messagetext == 'upthe hash'
       ) {
         var Pool = Pool14;
-        var Poolname = '777pool'
-        if (msg.channel.id == '###') {
+        var Poolname = 'upthehash'
+        if (msg.channel.id == '420834968420352000') {
           embed.setAuthor(Poolname + " Options", "https://i.imgur.com/ZoakSOl.png")
           embed.setDescription(Pool)
           msg.channel.send({
@@ -377,16 +382,16 @@ exports.pools = {
         }
       }
       if (
-        messagetext == 'omegapool.cc' ||
-        messagetext == 'omegapoolcc' ||
-        messagetext == 'omegapool cc' ||
-        messagetext == 'omegapool' ||
-        messagetext == 'omega' ||
-        messagetext == 'omega pool' ||
-        messagetext == 'omega pool cc'
+        messagetext == 'rvn.iampool.com' ||
+        messagetext == 'rvn.iampool' ||
+        messagetext == 'rvn iampool com' ||
+        messagetext == 'rvn iampool' ||
+        messagetext == 'iampool' ||
+        messagetext == 'iampool.com' ||
+        messagetext == 'iampool com'
       ) {
         var Pool = Pool15;
-        var Poolname = 'omegapool'
+        var Poolname = 'iampool'
         if (msg.channel.id == '###') {
           embed.setAuthor(Poolname + " Options", "https://i.imgur.com/ZoakSOl.png")
           embed.setDescription(Pool)
