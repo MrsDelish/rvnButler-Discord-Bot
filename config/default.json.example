@@ -15,22 +15,22 @@
     "botspam": "409219997735452672"
   },
    "pricebot":{
-  	"channels": ["405866572612370442","409219997735452672"],
-	  "mainchannel": "418185696742998027"
+  	"channels": ["418185696742998027","409219997735452672"],
+	  "mainchannel": "409219997735452672"
   },
    "networkbot":{
   	"channels": ["405866260379992064","409219997735452672"], // Channels Hash Bot is allowed to post in
 	  "mainchannel" : "405866260379992064" // Main Hash Bot channel for directing with help message
   },
    "statsbot":{
-  	"channels": ["405866572612370442","409219997735452672"], // Channels Hash Bot is allowed to post in
-	  "mainchannel" : "405866572612370442" // Main Hash Bot channel for directing with help message
+  	"channels": ["418185696742998027","409219997735452672"], // Channels Hash Bot is allowed to post in
+	  "mainchannel" : "418185696742998027" // Main Hash Bot channel for directing with help message
   },
   "rolelist":{
     "allowedroles": ["miner","trader","hodler","gambler","rain","trivia"]
   },
   "poolsbot":{
     "channels": ["409219997735452672","405867573897592842","405866260379992064"],
-    "dedichannels": ["416991571787907074","414961715592167434","417513282442625035","417872708907565058","417956255269650432"]
+    "dedichannels": ["414961715592167434","416991571787907074","420312077488619531","417872708907565058","417956255269650432","418896775638941721","420834968420352000"]
   }
 }
