@@ -97,15 +97,15 @@ exports.pools = {
         Pool16 +
         PoolEX;
         embed.setColor(0x4286F4)
-        embed.setAuthor("Raven Pools (Page 1 0f 3)", "https://i.imgur.com/ZoakSOl.png")
+        embed.setAuthor("Raven Pools (Page 1 of 3)", "https://i.imgur.com/ZoakSOl.png")
         embed.setDescription(Pools1)
         msgauthor.send({embed})
         .then(msg => {
-          embed.setAuthor("Raven Pools (Page 2 0f 3)", "https://i.imgur.com/ZoakSOl.png")
+          embed.setAuthor("Raven Pools (Page 2 of 3)", "https://i.imgur.com/ZoakSOl.png")
           embed.setDescription(Pools2)
           msgauthor.send({embed})
         }).then(msg => {
-          embed.setAuthor("Raven Pools (Page 3 0f 3)", "https://i.imgur.com/ZoakSOl.png")
+          embed.setAuthor("Raven Pools (Page 3 of 3)", "https://i.imgur.com/ZoakSOl.png")
           embed.setDescription(Pools3)
           msgauthor.send({embed})
         });
