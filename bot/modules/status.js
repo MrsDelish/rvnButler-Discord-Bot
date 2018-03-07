@@ -35,11 +35,11 @@ exports.status = {
         } else {
           msg.channel.send(
             data.address +
-              ':' +
+              ' on port ' +
               data.port +
               ' is UP\n  average ping of ' +
               data.avg +
-              '\n  Pinged 5 times!'
+              ' ms\n  Pinged 5 times!'
           );
         }
       }
