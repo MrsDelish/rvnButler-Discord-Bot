@@ -9,28 +9,31 @@
   "perms": ["Community Admin","RVNMOD","BOTS"], // Roles that have access to all commands.
   "logchannel": "410638358390243340" // Channel to log the bots moderation..
   },
-    //define channels for Commands.js usage
-   "Channels":{
-	  "mining": "405866260379992064",
-    "botspam": "409219997735452672"
-  },
-   "pricebot":{
-  	"channels": ["418185696742998027","409219997735452672"],
-	  "mainchannel": "409219997735452672"
-  },
-   "networkbot":{
-  	"channels": ["405866260379992064","409219997735452672"], // Channels Hash Bot is allowed to post in
-	  "mainchannel" : "405866260379992064" // Main Hash Bot channel for directing with help message
-  },
-   "statsbot":{
-  	"channels": ["418185696742998027","409219997735452672"], // Channels Hash Bot is allowed to post in
-	  "mainchannel" : "418185696742998027" // Main Hash Bot channel for directing with help message
-  },
-  "rolelist":{
-    "allowedroles": ["miner","trader","hodler","gambler","rain","trivia"]
-  },
+  //define channels for Commands.js usage
+ "Channels":{
+  "mining": "405866260379992064",
+  "botspam": "409219997735452672"
+},
+ "pricebot":{
+  "channels": ["418185696742998027","409219997735452672","410497941619605504","405866260379992064"],
+  "mainchannel": "409219997735452672"
+},
+ "hashbot":{
+  "channels": ["405866260379992064","409219997735452672","410497941619605504"], // Channels Hash Bot is allowed to post in
+  "mainchannel" : "405866260379992064" // Main Hash Bot channel for directing with help message
+},
+ "statsbot":{
+  "channels": ["418185696742998027","409219997735452672","410497941619605504"], // Channels Hash Bot is allowed to post in
+  "mainchannel" : "418185696742998027" // Main Hash Bot channel for directing with help message
+},
+"rolelist":{
+  "allowedroles": ["miner","trader","hodler","gambler","rain","trivia"]
+},
   "poolsbot":{
-    "channels": ["409219997735452672","405867573897592842","405866260379992064"],
-    "dedichannels": ["414961715592167434","416991571787907074","420312077488619531","417872708907565058","417956255269650432","418896775638941721","420834968420352000"]
-  }
+ "channels": ["409219997735452672","405867573897592842","405866260379992064"],
+   "dedichannels": ["414961715592167434","416991571787907074","420312077488619531","417872708907565058","417956255269650432","418896775638941721","420834968420352000"]
+},
+  "statusbot":{
+   "channels": ["409219997735452672","410497941619605504"]
+}
 }
