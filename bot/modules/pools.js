@@ -17,7 +17,7 @@ exports.pools = {
       '**[miningpanda](https://miningpanda.site/)** :\n' +
       '  STRATUM-URL: stratum+tcp://miningpanda.site:3636\n' +
       '  Extra Config: -p c=RVN\n' +
-      '  High Diff Port: 3666';
+      '  High Diff Port: 3666\n';
     var Pool2 =
       '**[omegapool](https://www.omegapool.cc/)** :\n' +
       '  STRATUM-URL: stratum+tcp://omegapool.cc:8006\n';
