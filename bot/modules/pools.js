@@ -65,7 +65,7 @@ exports.pools = {
     var Pool14 =
       '**[upthehash](https://upthehash.com/)** :\n' +
       '  STRATUM-URL: stratum+tcp://upthehash.com:3636\n' +
-      '  Alt Stratum URL: stratum+tcp://35.227.115.143:3636';
+      '  Alt Stratum URL: stratum+tcp://35.227.115.143:3636\n';
     var Pool15 =
       '**[iampool](https://rvn.iampool.com/)** :\n' +
       '  STRATUM-URL: stratum+tcp://rvn.iampool.com:3333\n';
