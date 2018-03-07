@@ -42,7 +42,7 @@ exports.balance = {
       return;
     }
     if (address == undefined) {
-      msg.channel.send('please supply and address!');
+      msg.channel.send('please supply a address!');
       return;
     }
     needle.get('http://threeeyed.info/ext/getbalance/' + address, function(
@@ -54,7 +54,7 @@ exports.balance = {
       } else {
         var data = response.body;
         var balance = Number(data).toFixed(2);
-        var description = 'Current balance: ' + numberWithCommas(balance);
+        var description = 'Current balance: ' + numberWithCommas(balance) + ' RVN';
         msg.channel.send(description);
         return;
       }
