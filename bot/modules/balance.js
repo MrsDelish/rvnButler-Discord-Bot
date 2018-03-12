@@ -34,7 +34,6 @@ exports.balance = {
     } else {
       var address = words[0];
     }
-    console.log(address);
     if (!inPrivate(msg) && !hasPriceBotChannels(msg)) {
       msg.channel.send(
         'Please use <#' + ChannelID + '> or DMs to talk to balance bot.'
@@ -45,16 +44,17 @@ exports.balance = {
       msg.channel.send('please supply a address!');
       return;
     }
-    needle.get('http://threeeyed.info/ext/getbalance/' + address, function(
+    needle.get('https://rvn.hash4.life/ext/getbalance/' + address, function(
       error,
       response
     ) {
       if (error || response.statusCode !== 200) {
-        msg.channel.send('threeeyed API is not available');
+        msg.channel.send('rvn.hash4.life API is not available');
       } else {
         var data = response.body;
         var balance = Number(data).toFixed(2);
-        var description = 'Current balance: ' + numberWithCommas(balance) + ' RVN';
+        var description =
+          'Current balance: ' + numberWithCommas(balance) + ' RVN';
         msg.channel.send(description);
         return;
       }

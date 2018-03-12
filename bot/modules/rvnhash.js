@@ -11,7 +11,6 @@ exports.hash = {
   usage: '',
   description: 'Displays current Stats of Raven Network\n',
   process: function(bot, msg, suffix) {
-    var command = '!network';
     words = suffix
       .trim()
       .split(' ')
@@ -24,12 +23,12 @@ exports.hash = {
       );
       return;
     }
-    needle.get('http://threeeyed.info/api/getmininginfo', function(
+    needle.get('https://rvn.hash4.life/api/getmininginfo', function(
       error,
       response
     ) {
       if (error || response.statusCode !== 200) {
-        msg.channel.send('whattomine API is not available');
+        msg.channel.send('rvn.hash4.life API is not available');
       } else {
         var data = response.body;
         var height = Number(data.blocks);
@@ -49,7 +48,7 @@ exports.hash = {
           'Block Reward: ' +
           numberWithCommas(reward.toFixed(0)) +
           ' RVN \n' +
-          'Sources: http://threeeyed.info/';
+          'Sources: https://rvn.hash4.life/';
         const embed = {
           description: description,
           color: 7976557,
