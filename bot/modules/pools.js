@@ -1,5 +1,5 @@
 const discord = require('discord.js');
-const embed = new discord.RichEmbed()
+const embed = new discord.RichEmbed();
 let config = require('config');
 let hasPoolsBotChannels = require('../helpers.js').hasPoolsBotChannels;
 let hasDediPoolsChannels = require('../helpers.js').hasDediPoolsChannels;
@@ -12,7 +12,7 @@ exports.pools = {
   usage: '',
   description: 'Pools',
   process: function(bot, msg, suffix) {
-    let msgauthor = msg.author
+    let msgauthor = msg.author;
     var Pool1 =
       '**[miningpanda](https://miningpanda.site/)** :\n' +
       '  STRATUM-URL: stratum+tcp://miningpanda.site:3636\n' +
@@ -76,42 +76,36 @@ exports.pools = {
     var PoolEX = '**EXAMPLE:**\n`-o STRATUM-URL:PORT -u WALLET/LOGIN`';
     var messagetext = suffix.toLowerCase();
     if (!messagetext) {
-      var Pools1 =
-        Pool1 +
-        Pool2 +
-        Pool3 +
-        Pool4 +
-        Pool5 +
-        Pool6;
-      var Pools2 =
-        Pool7 +
-        Pool8 +
-        Pool9 +
-        Pool10 +
-        Pool11 +
-        Pool12;
-      var Pools3 =
-        Pool13 +
-        Pool14 +
-        Pool15 +
-        Pool16 +
-        PoolEX;
-        embed.setColor(0x4286F4)
-        embed.setAuthor("Raven Pools (Page 1 of 3)", "https://i.imgur.com/ZoakSOl.png")
-        embed.setDescription(Pools1)
-        msgauthor.send({embed})
+      var Pools1 = Pool1 + Pool2 + Pool3 + Pool4 + Pool5 + Pool6;
+      var Pools2 = Pool7 + Pool8 + Pool9 + Pool10 + Pool11 + Pool12;
+      var Pools3 = Pool13 + Pool14 + Pool15 + Pool16 + PoolEX;
+      embed.setColor(0x4286f4);
+      embed.setAuthor(
+        'Raven Pools (Page 1 of 3)',
+        'https://i.imgur.com/ZoakSOl.png'
+      );
+      embed.setDescription(Pools1);
+      msgauthor
+        .send({ embed })
         .then(msg => {
-          embed.setAuthor("Raven Pools (Page 2 of 3)", "https://i.imgur.com/ZoakSOl.png")
-          embed.setDescription(Pools2)
-          msgauthor.send({embed})
-        }).then(msg => {
-          embed.setAuthor("Raven Pools (Page 3 of 3)", "https://i.imgur.com/ZoakSOl.png")
-          embed.setDescription(Pools3)
-          msgauthor.send({embed})
+          embed.setAuthor(
+            'Raven Pools (Page 2 of 3)',
+            'https://i.imgur.com/ZoakSOl.png'
+          );
+          embed.setDescription(Pools2);
+          msgauthor.send({ embed });
+        })
+        .then(msg => {
+          embed.setAuthor(
+            'Raven Pools (Page 3 of 3)',
+            'https://i.imgur.com/ZoakSOl.png'
+          );
+          embed.setDescription(Pools3);
+          msgauthor.send({ embed });
         });
-        msg.channel
-          .send("Pools list sent via DM")
-          .then(message => message.delete(5000));
+      msg.channel
+        .send('Pools list sent via DM')
+        .then(message => message.delete(5000));
     } else {
       if (
         messagetext == 'mining panda' ||
@@ -122,8 +116,11 @@ exports.pools = {
         var Pool = Pool1;
         var Poolname = 'miningpanda';
         if (msg.channel.id == '416991571787907074') {
-          embed.setAuthor(Poolname + " Options", "https://i.imgur.com/ZoakSOl.png")
-          embed.setDescription(Pool)
+          embed.setAuthor(
+            Poolname + ' Options',
+            'https://i.imgur.com/ZoakSOl.png'
+          );
+          embed.setDescription(Pool);
           msg.channel.send({
             embed
           });
@@ -140,10 +137,13 @@ exports.pools = {
         messagetext == 'omega pool cc'
       ) {
         var Pool = Pool2;
-        var Poolname = 'omegapool'
+        var Poolname = 'omegapool';
         if (msg.channel.id == '418896775638941721') {
-          embed.setAuthor(Poolname + " Options", "https://i.imgur.com/ZoakSOl.png")
-          embed.setDescription(Pool)
+          embed.setAuthor(
+            Poolname + ' Options',
+            'https://i.imgur.com/ZoakSOl.png'
+          );
+          embed.setDescription(Pool);
           msg.channel.send({
             embed
           });
@@ -156,10 +156,13 @@ exports.pools = {
         messagetext == 'minepool.com'
       ) {
         var Pool = Pool3;
-        var Poolname = 'minepool'
+        var Poolname = 'minepool';
         if (msg.channel.id == '417872708907565058') {
-          embed.setAuthor(Poolname + " Options", "https://i.imgur.com/ZoakSOl.png")
-          embed.setDescription(Pool)
+          embed.setAuthor(
+            Poolname + ' Options',
+            'https://i.imgur.com/ZoakSOl.png'
+          );
+          embed.setDescription(Pool);
           msg.channel.send({
             embed
           });
@@ -172,10 +175,13 @@ exports.pools = {
         messagetext == 'raven miner'
       ) {
         var Pool = Pool4;
-        var Poolname = 'ravenminer'
+        var Poolname = 'ravenminer';
         if (msg.channel.id == '###') {
-          embed.setAuthor(Poolname + " Options", "https://i.imgur.com/ZoakSOl.png")
-          embed.setDescription(Pool)
+          embed.setAuthor(
+            Poolname + ' Options',
+            'https://i.imgur.com/ZoakSOl.png'
+          );
+          embed.setDescription(Pool);
           msg.channel.send({
             embed
           });
@@ -198,10 +204,13 @@ exports.pools = {
         messagetext == 'stratum threeeyed'
       ) {
         var Pool = Pool5;
-        var Poolname = 'threeeyed'
+        var Poolname = 'threeeyed';
         if (msg.channel.id == '414961715592167434') {
-          embed.setAuthor(Poolname + " Options", "https://i.imgur.com/ZoakSOl.png")
-          embed.setDescription(Pool)
+          embed.setAuthor(
+            Poolname + ' Options',
+            'https://i.imgur.com/ZoakSOl.png'
+          );
+          embed.setDescription(Pool);
           msg.channel.send({
             embed
           });
@@ -218,10 +227,13 @@ exports.pools = {
         messagetext == 'cryptopool.party'
       ) {
         var Pool = Pool6;
-        var Poolname = 'cryptopoolparty'
+        var Poolname = 'cryptopoolparty';
         if (msg.channel.id == '###') {
-          embed.setAuthor(Poolname + " Options", "https://i.imgur.com/ZoakSOl.png")
-          embed.setDescription(Pool)
+          embed.setAuthor(
+            Poolname + ' Options',
+            'https://i.imgur.com/ZoakSOl.png'
+          );
+          embed.setDescription(Pool);
           msg.channel.send({
             embed
           });
@@ -237,10 +249,13 @@ exports.pools = {
         messagetext == 'hash4.life'
       ) {
         var Pool = Pool7;
-        var Poolname = 'hash4life'
+        var Poolname = 'hash4life';
         if (msg.channel.id == '420312077488619531') {
-          embed.setAuthor(Poolname + " Options", "https://i.imgur.com/ZoakSOl.png")
-          embed.setDescription(Pool)
+          embed.setAuthor(
+            Poolname + ' Options',
+            'https://i.imgur.com/ZoakSOl.png'
+          );
+          embed.setDescription(Pool);
           msg.channel.send({
             embed
           });
@@ -258,10 +273,13 @@ exports.pools = {
         messagetext == 'pool.noip.ro'
       ) {
         var Pool = Pool8;
-        var Poolname = 'noip'
+        var Poolname = 'noip';
         if (msg.channel.id == '417956255269650432') {
-          embed.setAuthor(Poolname + " Options", "https://i.imgur.com/ZoakSOl.png")
-          embed.setDescription(Pool)
+          embed.setAuthor(
+            Poolname + ' Options',
+            'https://i.imgur.com/ZoakSOl.png'
+          );
+          embed.setDescription(Pool);
           msg.channel.send({
             embed
           });
@@ -274,10 +292,13 @@ exports.pools = {
         messagetext == 'yiimp.eu'
       ) {
         var Pool = Pool9;
-        var Poolname = 'yiimp'
+        var Poolname = 'yiimp';
         if (msg.channel.id == '###') {
-          embed.setAuthor(Poolname + " Options", "https://i.imgur.com/ZoakSOl.png")
-          embed.setDescription(Pool)
+          embed.setAuthor(
+            Poolname + ' Options',
+            'https://i.imgur.com/ZoakSOl.png'
+          );
+          embed.setDescription(Pool);
           msg.channel.send({
             embed
           });
@@ -292,10 +313,13 @@ exports.pools = {
         messagetext == 'rvn.suprnova'
       ) {
         var Pool = Pool10;
-        var Poolname = 'suprnova'
+        var Poolname = 'suprnova';
         if (msg.channel.id == '###') {
-          embed.setAuthor(Poolname + " Options", "https://i.imgur.com/ZoakSOl.png")
-          embed.setDescription(Pool)
+          embed.setAuthor(
+            Poolname + ' Options',
+            'https://i.imgur.com/ZoakSOl.png'
+          );
+          embed.setDescription(Pool);
           msg.channel.send({
             embed
           });
@@ -312,10 +336,13 @@ exports.pools = {
         messagetext == 'pool.masterhash.us'
       ) {
         var Pool = Pool11;
-        var Poolname = 'masterhash'
+        var Poolname = 'masterhash';
         if (msg.channel.id == '###') {
-          embed.setAuthor(Poolname + " Options", "https://i.imgur.com/ZoakSOl.png")
-          embed.setDescription(Pool)
+          embed.setAuthor(
+            Poolname + ' Options',
+            'https://i.imgur.com/ZoakSOl.png'
+          );
+          embed.setDescription(Pool);
           msg.channel.send({
             embed
           });
@@ -331,10 +358,13 @@ exports.pools = {
         messagetext == 'minersport'
       ) {
         var Pool = Pool12;
-        var Poolname = 'minersport'
+        var Poolname = 'minersport';
         if (msg.channel.id == '###') {
-          embed.setAuthor(Poolname + " Options", "https://i.imgur.com/ZoakSOl.png")
-          embed.setDescription(Pool)
+          embed.setAuthor(
+            Poolname + ' Options',
+            'https://i.imgur.com/ZoakSOl.png'
+          );
+          embed.setDescription(Pool);
           msg.channel.send({
             embed
           });
@@ -352,10 +382,13 @@ exports.pools = {
         messagetext == 'pool.gorogoro'
       ) {
         var Pool = Pool13;
-        var Poolname = 'gorogoro'
+        var Poolname = 'gorogoro';
         if (msg.channel.id == '###') {
-          embed.setAuthor(Poolname + " Options", "https://i.imgur.com/ZoakSOl.png")
-          embed.setDescription(Pool)
+          embed.setAuthor(
+            Poolname + ' Options',
+            'https://i.imgur.com/ZoakSOl.png'
+          );
+          embed.setDescription(Pool);
           msg.channel.send({
             embed
           });
@@ -371,10 +404,13 @@ exports.pools = {
         messagetext == 'upthe hash'
       ) {
         var Pool = Pool14;
-        var Poolname = 'upthehash'
+        var Poolname = 'upthehash';
         if (msg.channel.id == '420834968420352000') {
-          embed.setAuthor(Poolname + " Options", "https://i.imgur.com/ZoakSOl.png")
-          embed.setDescription(Pool)
+          embed.setAuthor(
+            Poolname + ' Options',
+            'https://i.imgur.com/ZoakSOl.png'
+          );
+          embed.setDescription(Pool);
           msg.channel.send({
             embed
           });
@@ -391,10 +427,13 @@ exports.pools = {
         messagetext == 'iampool com'
       ) {
         var Pool = Pool15;
-        var Poolname = 'iampool'
+        var Poolname = 'iampool';
         if (msg.channel.id == '###') {
-          embed.setAuthor(Poolname + " Options", "https://i.imgur.com/ZoakSOl.png")
-          embed.setDescription(Pool)
+          embed.setAuthor(
+            Poolname + ' Options',
+            'https://i.imgur.com/ZoakSOl.png'
+          );
+          embed.setDescription(Pool);
           msg.channel.send({
             embed
           });
@@ -410,10 +449,13 @@ exports.pools = {
         messagetext == 'fubar'
       ) {
         var Pool = Pool16;
-        var Poolname = 'fubarpool'
+        var Poolname = 'fubarpool';
         if (msg.channel.id == '###') {
-          embed.setAuthor(Poolname + " Options", "https://i.imgur.com/ZoakSOl.png")
-          embed.setDescription(Pool)
+          embed.setAuthor(
+            Poolname + ' Options',
+            'https://i.imgur.com/ZoakSOl.png'
+          );
+          embed.setDescription(Pool);
           msg.channel.send({
             embed
           });
@@ -429,11 +471,11 @@ exports.pools = {
           .then(message => message.delete(5000));
         return;
       }
-      embed.setAuthor(Poolname + " Options", "https://i.imgur.com/ZoakSOl.png")
-      embed.setDescription(Pool)
+      embed.setAuthor(Poolname + ' Options', 'https://i.imgur.com/ZoakSOl.png');
+      embed.setDescription(Pool);
       msg.channel.send({
         embed
-      })
+      });
     }
   }
 };

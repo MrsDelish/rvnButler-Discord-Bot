@@ -38,8 +38,6 @@ exports.purge = {
         })
         .catch(err => {
           if (responseDebug) {
-            console.log('Error while doing Bulk Delete');
-            console.log(err);
           }
         });
     } else {

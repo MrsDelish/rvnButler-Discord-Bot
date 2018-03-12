@@ -19,9 +19,9 @@ exports.onUserJoin = function(bot) {
           '2. Backing up your Raven wallet is your responsbility!\n' +
           '3. Are you a dev? Check out the #development channel \n\n' +
           '**Donations**\n' +
-          'Development Donation Address: [RT2r9oGxQxbVE1Ji5p5iPgrqpNQLfc8ksH](http://threeeyed.info/address/RT2r9oGxQxbVE1Ji5p5iPgrqpNQLfc8ksH)\n' +
+          'Development Donation Address: [RT2r9oGxQxbVE1Ji5p5iPgrqpNQLfc8ksH](https://rvn.hash4.life/address/RT2r9oGxQxbVE1Ji5p5iPgrqpNQLfc8ksH)\n' +
           '100% of collected funds will be used for things like new pools, added network tools for RVN, new mining clients, and further code development.\n\n' +
-          'Marketing Donation Address: [RNwtuuLL1YCCHQhwY3nAoGqNkd1LSQFA1G](http://threeeyed.info/address/RNwtuuLL1YCCHQhwY3nAoGqNkd1LSQFA1G)\n' +
+          'Marketing Donation Address: [RNwtuuLL1YCCHQhwY3nAoGqNkd1LSQFA1G](https://rvn.hash4.life/address/RNwtuuLL1YCCHQhwY3nAoGqNkd1LSQFA1G)\n' +
           '100% of collected funds will be used for things like running ads, translations, graphics, videos, and any other applicable needs.\n',
         fields: [
           {
@@ -42,8 +42,13 @@ exports.onUserJoin = function(bot) {
             inline: true
           },
           {
-            name: 'Block Explorer',
+            name: 'Block Explorer 1',
             value: '[threeeyed.info](http://threeeyed.info/)',
+            inline: true
+          },
+          {
+            name: 'Block Explorer 2',
+            value: '[rvn.hash4.life](https://rvn.hash4.life/)',
             inline: true
           },
           {
@@ -116,9 +121,9 @@ exports.welcome = {
           '2. Backing up your Raven wallet is your responsbility!\n' +
           '3. Are you a dev? Check out the #development channel \n\n' +
           '**Donations**\n' +
-          'Development Donation Address: [RT2r9oGxQxbVE1Ji5p5iPgrqpNQLfc8ksH](http://threeeyed.info/address/RT2r9oGxQxbVE1Ji5p5iPgrqpNQLfc8ksH)\n' +
+          'Development Donation Address: [RT2r9oGxQxbVE1Ji5p5iPgrqpNQLfc8ksH](https://rvn.hash4.life/address/RT2r9oGxQxbVE1Ji5p5iPgrqpNQLfc8ksH)\n' +
           '100% of collected funds will be used for things like new pools, added network tools for RVN, new mining clients, and further code development.\n\n' +
-          'Marketing Donation Address: [RNwtuuLL1YCCHQhwY3nAoGqNkd1LSQFA1G](http://threeeyed.info/address/RNwtuuLL1YCCHQhwY3nAoGqNkd1LSQFA1G)\n' +
+          'Marketing Donation Address: [RNwtuuLL1YCCHQhwY3nAoGqNkd1LSQFA1G](https://rvn.hash4.life/address/RNwtuuLL1YCCHQhwY3nAoGqNkd1LSQFA1G)\n' +
           '100% of collected funds will be used for things like running ads, translations, graphics, videos, and any other applicable needs.\n',
         fields: [
           {
@@ -139,8 +144,13 @@ exports.welcome = {
             inline: true
           },
           {
-            name: 'Block Explorer',
+            name: 'Block Explorer 1',
             value: '[threeeyed.info](http://threeeyed.info/)',
+            inline: true
+          },
+          {
+            name: 'Block Explorer 2',
+            value: '[rvn.hash4.life](https://rvn.hash4.life/)',
             inline: true
           },
           {
