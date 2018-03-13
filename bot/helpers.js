@@ -41,6 +41,11 @@ exports.hasPoolsBotChannels = function(msg) {
   return poolsBotChannels.channels.includes(msg.channel.id);
 };
 
+// Checks if Message was sent from a channel in poolsBot Channels list
+exports.hasDediPoolsChannels = function(msg) {
+  return poolsBotChannels.dedichannels.includes(msg.channel.id);
+};
+
 // Checks if Message was sent from a channel in statusBot Channels list
 exports.hasStatusBotChannels = function(msg) {
   return statusBotChannels.channels.includes(msg.channel.id);
