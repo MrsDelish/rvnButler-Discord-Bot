@@ -44,14 +44,14 @@ exports.hash = {
         } else {
           var data = response.body;
           var height = Number(data.blocks);
-          var hashrate = data.networkhashps;
+          var hashrate = Number(data.networkhashps) / 1000000000;
           var difficulty = Number(data.difficulty);
           var reward = 5000;
           var block_time = 60;
             description =
               "Hashrate: " +
-              numberWithCommas(hashrate) +
-              "\n" +
+              numberWithCommas(hashrate.toFixed(2)) +
+              " Gh/s\n" +
               "Difficulty: " +
               numberWithCommas(difficulty.toFixed(0)) +
               "\n" +
