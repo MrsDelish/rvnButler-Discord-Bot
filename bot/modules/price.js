@@ -10,7 +10,7 @@ exports.commands = ['price'];
 exports.price = {
   usage: '<fiat/coin> <amount>',
   description:
-    'display price of RVN in specified alt coin/fiat from crypto compare\n**Example:** *!price USD 100*',
+    'display price of RVN in specified alt coin/fiat from crypto compare\n  **Example:** *!price USD 100*\n  **Supported Fiats:** *usd*, *eur*, *gbp*, *aud*, *brl*, *cad*, *chf*, *clp*, *cny*, *czk*, *dkk*, *hkd*, *huf*, *idr*, *ils*, *inr*, *jpy*, *krw*, *mxn*, *myr*, *nok*, *nzd*, *php*, *pkr*, *pln*, *rub*, *sek*, *sgd*, *thb*, *try*, *twd*, *zar* (case-insensitive)"',
   process: function(bot, msg, suffix) {
     let dt = new Date();
     let timestamp = moment()
