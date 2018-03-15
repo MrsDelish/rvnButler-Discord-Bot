@@ -8,6 +8,7 @@
     "embed-creator": "^1.1.4",
     "jsonpath": "^0.2.12",
     "moment": "^2.19.1",
+    "moment-timezone": "^0.5.14",
     "needle": "^2.0.1",
     "node-config": "^0.0.2",
     "numeral": "^2.0.6",
