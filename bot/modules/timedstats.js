@@ -12,7 +12,7 @@ exports.custom = ["TimedStats"];
 exports.TimedStats = function(bot) {
   setInterval(function() {
     sendInfo(bot);
-  }, 3600000
+  }, 1800000
 );
 
   function sendInfo(bot) {
