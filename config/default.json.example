@@ -7,14 +7,14 @@
   },
   "moderation":{
   "perms": ["Community Admin","RVNMOD","BOTS"], // Roles that have access to all commands.
-  "logchannel": "410638358390243340", // Channel to log the bots moderation..
-  "timedhash": "405866260379992064",
-  "timedstats": "418185696742998027"
+  "logchannel": "410638358390243340" // Channel to log the bots moderation
   },
   //define channels for Commands.js usage
  "Channels":{
   "mining": "405866260379992064",
-  "botspam": "409219997735452672"
+  "botspam": "409219997735452672",
+  "timedhash": "405866260379992064",
+  "timedstats": "418185696742998027"
 },
  "pricebot":{
   "channels": ["409219997735452672","418286554956431370"],
