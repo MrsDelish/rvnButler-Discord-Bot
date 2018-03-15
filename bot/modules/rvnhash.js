@@ -40,7 +40,7 @@ exports.hash = {
         response
       ) {
         if (error || response.statusCode !== 200) {
-          msg.channel.send("Explorer API is not available");
+          msg.channel.send("rvn.hash4.life API is not available");
         } else {
           var data = response.body;
           var height = Number(data.blocks);
@@ -69,7 +69,7 @@ exports.hash = {
               description: description,
               color: 7976557,
               author: {
-                name: "LBRY Network Stats",
+                name: "Ravencoin Network Stats",
                 icon_url: "https://i.imgur.com/yWf5USu.png"
               }
             };
@@ -312,7 +312,7 @@ exports.hash = {
             response
           ) {
             if (error || response.statusCode !== 200) {
-              msg.channel.send("whattomine API is not available");
+              msg.channel.send("rvn.hash4.life API is not available");
             } else {
               var data = response.body;
               var height = Number(data.blocks);

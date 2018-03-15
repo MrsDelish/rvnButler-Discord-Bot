@@ -44,7 +44,7 @@ exports.lambo = {
         'https://api.coinmarketcap.com/v1/ticker/ravencoin/?convert=USD',
         function(error, response) {
           if (error || response.statusCode !== 200) {
-            msg.channel.send('blockchain.info API is not available');
+            msg.channel.send('coinmarketcap API is not available');
           } else {
             if (words[0] == undefined) {
               var amount = 1;
