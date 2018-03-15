@@ -79,6 +79,12 @@ exports.hash = {
       });
     }
     function sendProfitInfo(bot, msg, suffix) {
+      if (!inPrivate(msg) && !hasHashBotChannels(msg)) {
+        msg.channel.send(
+          "Please use <#" + ChannelID + "> or DMs to talk to hash bot."
+        );
+        return;
+      }
       words = suffix
         .trim()
         .split(" ")
