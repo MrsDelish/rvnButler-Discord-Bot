@@ -11,7 +11,7 @@ exports.custom = ["TimedHash"];
 exports.TimedHash = function(bot) {
   setInterval(function() {
     sendInfo(bot);
-  }, 3600000
+  }, 600000
 );
 
   function sendInfo(bot) {
