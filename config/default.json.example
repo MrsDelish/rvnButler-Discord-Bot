@@ -7,7 +7,9 @@
   },
   "moderation":{
   "perms": ["Community Admin","RVNMOD","BOTS"], // Roles that have access to all commands.
-  "logchannel": "410638358390243340" // Channel to log the bots moderation..
+  "logchannel": "410638358390243340", // Channel to log the bots moderation..
+  "timedhash": "405866260379992064",
+  "timedstats": "418185696742998027"
   },
   //define channels for Commands.js usage
  "Channels":{
@@ -15,16 +17,16 @@
   "botspam": "409219997735452672"
 },
  "pricebot":{
-  "channels": ["418185696742998027","409219997735452672","410497941619605504","405866260379992064"],
+  "channels": ["409219997735452672","418286554956431370"],
   "mainchannel": "409219997735452672"
 },
  "hashbot":{
-  "channels": ["405866260379992064","409219997735452672","410497941619605504"], // Channels Hash Bot is allowed to post in
-  "mainchannel" : "405866260379992064" // Main Hash Bot channel for directing with help message
+  "channels": ["409219997735452672","418286554956431370"], // Channels Hash Bot is allowed to post in
+  "mainchannel" : "409219997735452672" // Main Hash Bot channel for directing with help message
 },
  "statsbot":{
-  "channels": ["418185696742998027","409219997735452672","410497941619605504"], // Channels Hash Bot is allowed to post in
-  "mainchannel" : "418185696742998027" // Main Hash Bot channel for directing with help message
+  "channels": ["409219997735452672","418286554956431370"], // Channels Hash Bot is allowed to post in
+  "mainchannel" : "409219997735452672" // Main Hash Bot channel for directing with help message
 },
 "rolelist":{
   "allowedroles": ["miner","trader","hodler","gambler","rain","trivia"]
