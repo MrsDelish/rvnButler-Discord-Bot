@@ -1,16 +1,18 @@
 const discord = require('discord.js');
 const embed = new discord.RichEmbed();
 let config = require('config');
-let hasPoolsBotChannels = require('../helpers.js').hasPoolsBotChannels;
+let hasRvnPoolsChannels = require('../helpers.js').hasRvnPoolsChannels;
 let hasDediPoolsChannels = require('../helpers.js').hasDediPoolsChannels;
+let ChannelID = config.get('Channels').mining;
 
 exports.commands = [
   'pools' // command name that will be used for next lines of code below
 ];
 
 exports.pools = {
-  usage: '',
-  description: 'Pools',
+  usage:
+    '<poolname>',
+  description: 'Rvn Pools List\noptionally add pools name to return just that pools setup',
   process: function(bot, msg, suffix) {
     let msgauthor = msg.author;
     var Pool1 =
@@ -39,8 +41,8 @@ exports.pools = {
       '  STRATUM-URL: stratum+tcp://hash4.life:3636\n' +
       '  Extra Config: -p c=RVN\n';
     var Pool8 =
-      '**[noip](http://pool.noip.ro/)** :\n' +
-      '  STRATUM-URL: stratum+tcp://pool.noip.ro:3636\n' +
+      '**[krawww-miner](http://krawww-miner.eu/)** :\n' +
+      '  STRATUM-URL: stratum+tcp://krawww-miner.eu:3636\n' +
       '  Extra Config: -p c=RVN\n';
     var Pool9 =
       '**[Yiimp](http://yiimp.eu/)** :\n' +
@@ -75,6 +77,12 @@ exports.pools = {
       '  Extra Config: -p c=RVN\n';
     var PoolEX = '**EXAMPLE:**\n`-o STRATUM-URL:PORT -u WALLET/LOGIN`';
     var messagetext = suffix.toLowerCase();
+    if (!hasRvnPoolsChannels) {
+      msg.channel.send(
+        'Please use <#' + ChannelID + '> or DMs to talk to pools bot.'
+      );
+      return;
+    }
     if (!messagetext) {
       var Pools1 = Pool1 + Pool2 + Pool3 + Pool4 + Pool5 + Pool6;
       var Pools2 = Pool7 + Pool8 + Pool9 + Pool10 + Pool11 + Pool12;
@@ -263,18 +271,17 @@ exports.pools = {
         }
       }
       if (
-        messagetext == 'noip' ||
-        messagetext == 'no ip' ||
-        messagetext == 'noip ro' ||
-        messagetext == 'pool noip' ||
-        messagetext == 'pool.noip' ||
-        messagetext == 'noip.ro' ||
-        messagetext == 'pool noip ro' ||
-        messagetext == 'pool.noip.ro'
+        messagetext == 'krawww-miner.eu' ||
+        messagetext == 'krawww-miner eu' ||
+        messagetext == 'krawww-miner' ||
+        messagetext == 'krawww miner' ||
+        messagetext == 'krawww' ||
+        messagetext == 'kraww' ||
+        messagetext == 'kraw'
       ) {
         var Pool = Pool8;
-        var Poolname = 'noip';
-        if (msg.channel.id == '417956255269650432') {
+        var Poolname = 'krawww-miner';
+        if (msg.channel.id == '424655862863233034') {
           embed.setAuthor(
             Poolname + ' Options',
             'https://i.imgur.com/ZoakSOl.png'
@@ -467,7 +474,7 @@ exports.pools = {
       }
       if (hasDediPoolsChannels(msg)) {
         msg.channel
-          .send("can't use this command here")
+          .send('can not use this command here')
           .then(message => message.delete(5000));
         return;
       }

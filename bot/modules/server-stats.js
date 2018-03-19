@@ -4,10 +4,10 @@ let config = require('config');
 let ChannelID = config.get('Channels').botspam;
 
 exports.commands = [
-  'server' // command name that will be used for next lines of code below
+  'serverstats' // command name that will be used for next lines of code below
 ];
 
-exports.server = {
+exports.serverstats = {
   usage: '', //command usage like !demo <@username>, exclude !demo
   description: 'Displays server stats', //the description of command for !help command
   process: function(bot, msg, suffix) {

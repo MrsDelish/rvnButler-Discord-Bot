@@ -1,17 +1,17 @@
 let config = require('config');
-let moment = require('moment-timezone');
-let hasPriceBotChannels = require('../helpers.js').hasPriceBotChannels;
-let inPrivate = require('../helpers.js').inPrivate;
-let ChannelID = config.get('pricebot').mainchannel;
 let needle = require('needle');
+let moment = require('moment-timezone');
+let hasRvnCalcPriceChannels = require('../helpers.js').hasRvnCalcPriceChannels;
+let inPrivate = require('../helpers.js').inPrivate;
+let ChannelID = config.get('Channels').botspam;
 
-exports.commands = ['stats'];
+exports.commands = ['market'];
 
-exports.stats = {
+exports.market = {
   usage: '',
-  description: 'gets rvn market cap stats from coinmarketcap',
+  description: 'gets market stats for ravencoin(RVN)',
   process: function(bot, msg, suffix) {
-    if (!hasPriceBotChannels(msg) && !inPrivate(msg)) {
+    if (!hasRvnCalcPriceChannels(msg) && !inPrivate(msg)) {
       msg.channel.send(
         'Please use <#' + ChannelID + '> or DMs to talk to stats bot.'
       );

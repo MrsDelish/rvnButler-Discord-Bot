@@ -1,41 +1,94 @@
 {
-  // Bot configuration
   "bot": {
+      // Bot configuration
       "token":"Bot-Token",
       "prefix": "!",
       "debug": true
   },
-  "moderation":{
-  "perms": ["Community Admin","RVNMOD","BOTS"], // Roles that have access to all commands.
-  "logchannel": "410638358390243340" // Channel to log the bots moderation
+  "moderation": {
+      // Channel to log the bots moderation
+      "logchannel": "410638358390243340",
+      // Roles that have access to all commands.
+      "perms": [
+          "Community Admin",
+          "RVNMOD",
+          "BOTS"
+      ]
   },
-  //define channels for Commands.js usage
- "Channels":{
-  "mining": "405866260379992064",
-  "botspam": "409219997735452672",
-  "timedhash": "405866260379992064",
-  "timedstats": "418185696742998027"
-},
- "pricebot":{
-  "channels": ["409219997735452672","418286554956431370"],
-  "mainchannel": "409219997735452672"
-},
- "hashbot":{
-  "channels": ["409219997735452672","418286554956431370"], // Channels Hash Bot is allowed to post in
-  "mainchannel" : "409219997735452672" // Main Hash Bot channel for directing with help message
-},
- "statsbot":{
-  "channels": ["409219997735452672","418286554956431370"], // Channels Hash Bot is allowed to post in
-  "mainchannel" : "409219997735452672" // Main Hash Bot channel for directing with help message
-},
-"rolelist":{
-  "allowedroles": ["miner","trader","hodler","gambler","rain","trivia"]
-},
-  "poolsbot":{
- "channels": ["409219997735452672","405867573897592842","405866260379992064"],
-   "dedichannels": ["414961715592167434","416991571787907074","420312077488619531","417872708907565058","417956255269650432","418896775638941721","420834968420352000"]
-},
-  "statusbot":{
-   "channels": ["409219997735452672","410497941619605504"]
-}
+  "Channels": {
+      //define channels for global usage
+      "mining": "405866260379992064",
+      "botspam": "409219997735452672",
+  },
+  "rvnCalcPrice": {
+      // Main Price Bot channel for directing with help message
+      "mainchannel": "409219997735452672",
+      // Channels Price Bot is allowed to post in
+      "channels": [
+          "409219997735452672",
+          "418286554956431370"
+      ]
+  },
+  "rvnStatsNetwork": {
+      // Main Hash Bot channel for directing with help message
+      "mainchannel": "409219997735452672",
+      // Channels Hash Bot is allowed to post in
+      "channels": [
+          "409219997735452672",
+          "418286554956431370"
+      ]
+  },
+  "rvnStatsMarket": {
+      // Main Hash Bot channel for directing with help message
+      "mainchannel": "409219997735452672",
+      // Channels Hash Bot is allowed to post in
+      "channels": [
+          "409219997735452672",
+          "418286554956431370"
+      ]
+  },
+  "serverRolesetter": {
+      // Roles Rolesetter bot is allowed to use
+      "allowedroles": [
+          "miner",
+          "trader",
+          "hodler",
+          "gambler",
+          "rain",
+          "trivia"
+      ]
+  },
+  "rvnPools": {
+      // Channels Pools List is allowed to post in
+      "channels": [
+          "409219997735452672",
+          "405867573897592842",
+          "405866260379992064"
+      ],
+      // Dedicated Pools Channels for Pools list bot
+      "dedichannels": [
+          "414961715592167434",
+          "416991571787907074",
+          "420312077488619531",
+          "417872708907565058",
+          "424655862863233034",
+          "418896775638941721",
+          "420834968420352000"
+      ]
+  },
+  "serverWebsiteStatus": {
+      // Channels Status Bot is allowed to post in
+      "channels": [
+          "409219997735452672",
+          "410497941619605504"
+      ]
+  },
+  "TimedBots": {
+      // Channels Timer Bots are allowed to post in
+      "hash": "424256434264604682",
+      "stats": "424256369470865408",
+      // how often bots will post in milliseconds
+      "timerhash": 600000,
+      "timerstats": 600000
+  }
 }

@@ -1,15 +1,15 @@
 let needle = require('needle');
 let config = require('config');
-let hasPriceBotChannels = require('../helpers.js').hasPriceBotChannels;
+let hasRvnCalcPriceChannels = require('../helpers.js').hasRvnCalcPriceChannels;
 let inPrivate = require('../helpers.js').inPrivate;
-let ChannelID = config.get('pricebot').mainchannel;
+let ChannelID = config.get('Channels').botspam;
 exports.commands = [
   'balance' // command that is in this file, every command needs it own export as shown below
 ];
 
 exports.balance = {
   usage: '<Address>',
-  description: 'Displays current blanace of raven address supplied\n',
+  description: 'Displays current blanace of raven address supplied',
   process: function(bot, msg, suffix) {
     var command = '!balance';
     words = suffix
@@ -34,7 +34,7 @@ exports.balance = {
     } else {
       var address = words[0];
     }
-    if (!inPrivate(msg) && !hasPriceBotChannels(msg)) {
+    if (!inPrivate(msg) && !hasRvnCalcPriceChannels(msg)) {
       msg.channel.send(
         'Please use <#' + ChannelID + '> or DMs to talk to balance bot.'
       );

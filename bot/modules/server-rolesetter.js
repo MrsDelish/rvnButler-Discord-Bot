@@ -1,6 +1,6 @@
 let config = require('config');
 let botconfig = config.get('bot');
-let rolelist = config.get('rolelist');
+let serverRolesetter = config.get('serverRolesetter');
 let inPrivate = require('../helpers.js').inPrivate;
 let inSpam = require('../helpers.js').inSpam;
 let ChannelID = config.get('Channels').botspam;
@@ -12,7 +12,7 @@ exports.addrole = {
   description: 'Adds you to specified role',
   process: function(bot, msg, suffix) {
     if (inPrivate(msg)) {
-      msg.channel.send("You Cant set roles In DM's!");
+      msg.channel.send('You Can Not set roles In DMs!');
       return;
     }
     if (!inSpam(msg)) {
@@ -23,7 +23,7 @@ exports.addrole = {
     }
     var newrole = msg.guild.roles.find('name', suffix);
     if (suffix) {
-      if (rolelist.allowedroles.includes(suffix)) {
+      if (serverRolesetter.allowedroles.includes(suffix)) {
         if (newrole !== null) {
           if (!msg.member.roles.find('name', suffix)) {
             msg.member
@@ -43,7 +43,7 @@ exports.addrole = {
         }
       } else {
         msg.channel.send(
-          "That role isn't one you can add yourself too! Please run the " +
+          'That role is not one you can add yourself too! Please run the ' +
             botconfig.prefix +
             'roles command to find out which ones are allowed.'
         );
@@ -62,7 +62,7 @@ exports.delrole = {
   description: 'Deletes your role specified',
   process: function(bot, msg, suffix) {
     if (inPrivate(msg)) {
-      msg.channel.send("You Cant set roles In DM's!");
+      msg.channel.send('You Can Not set roles In DMs!');
       return;
     }
     if (!inSpam(msg)) {
@@ -73,7 +73,7 @@ exports.delrole = {
     }
     let oldrole = msg.guild.roles.find('name', suffix);
     if (suffix) {
-      if (rolelist.allowedroles.includes(suffix)) {
+      if (serverRolesetter.allowedroles.includes(suffix)) {
         if (oldrole !== null) {
           if (msg.member.roles.find('name', suffix)) {
             msg.member
@@ -85,7 +85,7 @@ exports.delrole = {
               );
           } else {
             msg.channel.send(
-              "You don't seem to have that role! Try adding it first with the " +
+              'You do not seem to have that role! Try adding it first with the ' +
                 botconfig.prefix +
                 'addrole command!'
             );
@@ -97,7 +97,7 @@ exports.delrole = {
         }
       } else {
         msg.channel.send(
-          "That role isn't one you can add yourself too! Please run the " +
+          'That role is not one you can add yourself too! Please run the ' +
             botconfig.prefix +
             'roles command to find out which ones are allowed.'
         );
@@ -116,7 +116,7 @@ exports.roles = {
   description: 'displays roles you can give yourself',
   process: function(bot, msg, suffix) {
     if (inPrivate(msg)) {
-      msg.channel.send("You Cant set roles In DM's!");
+      msg.channel.send('You Can Not set roles In DMs!');
       return;
     }
     if (!inSpam(msg)) {
@@ -132,7 +132,7 @@ exports.roles = {
         fields: [
           {
             name: 'List of roles',
-            value: buildRoleString(rolelist.allowedroles),
+            value: buildRoleString(serverRolesetter.allowedroles),
             inline: false
           }
         ],

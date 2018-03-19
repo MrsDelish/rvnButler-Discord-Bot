@@ -1,6 +1,6 @@
 let hasPerms = require('../helpers.js').hasPerms;
 let inPrivate = require('../helpers.js').inPrivate;
-let responseDebug = false;
+
 exports.commands = [
   'purge' // command that is in this file, every command needs it own export as shown below
 ];
@@ -10,7 +10,7 @@ exports.purge = {
   description: 'Deletes Messages',
   process: function(bot, msg, suffix) {
     if (inPrivate(msg)) {
-      msg.channel.send("You Cant Purge Message In DM's!");
+      msg.channel.send('You Cant Purge Message In DMs!');
       return;
     }
     if (hasPerms(msg)) {
@@ -31,19 +31,21 @@ exports.purge = {
           // Logging the number of messages deleted on both the channel and console.
           msg.channel
             .send(
-              'Deletion of messages successful. \n Total messages deleted including command: ' +
-                newamount
+              'Deletion of messages successful. \n Total messages Purged: ' +
+                newamount -
+                1
             )
-            .then(message => message.delete(5000));
+            .then(message => message.delete(10000));
         })
         .catch(err => {
-          if (responseDebug) {
-          }
+          msg.channel
+            .send('ERROR deleting ' + newamount - 1 + ' messages!')
+            .then(message => message.delete(10000));
         });
     } else {
       msg.channel
         .send('only moderators can use this command!')
-        .then(message => message.delete(5000));
+        .then(message => message.delete(10000));
     }
   }
 };

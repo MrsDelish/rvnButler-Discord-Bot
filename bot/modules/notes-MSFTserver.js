@@ -1,5 +1,5 @@
 let fs = require('fs');
-var moment = require('moment-timezone');
+let moment = require('moment-timezone');
 
 exports.commands = [
   'botmaster' // command name that will be used for next lines of code below

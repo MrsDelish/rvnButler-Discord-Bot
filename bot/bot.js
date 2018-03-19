@@ -11,36 +11,17 @@ config = config.get('bot');
 const commandsV2 = require('./modules/commandsV2.js');
 
 var aliases;
+var commands = {};
+// check if any aliases are defined
 try {
   aliases = require('./alias.json');
 } catch (e) {
-  //No aliases defined
-  aliases = {
-    test: {
-      process: function(bot, msg) {
-        msg.channel.send('test');
-      }
-    }
-  };
+  console.log('no aliases in /bot/alias.json');
 }
-var commands = {
-  ping: {
-    description: 'responds pong, useful for checking if bot is alive',
-    process: async function(bot, msg, suffix) {
-      let m = await msg.channel.send(msg.author + ' Ping?');
-      m.edit(
-        `Pong! Latency is ${m.createdTimestamp -
-          msg.createdTimestamp}ms. API Latency is ${Math.round(bot.ping)}ms`
-      );
-      if (suffix) {
-        msg.channel.send('note that !ping takes no arguments!');
-      }
-    }
-  }
-};
 
 var bot = new Discord.Client();
 
+//run when bot is activated in server
 bot.on('ready', function() {
   console.log(
     'Logged in! Serving in ' + bot.guilds.array().length + ' servers'
@@ -68,16 +49,21 @@ function checkMessageForCommand(msg, isEdit) {
         msg.author.username +
         ' as command'
     );
-    var cmdTxt = msg.content.split(' ')[0].substring(config.prefix.length);
-    var suffix = msg.content.substring(
-      cmdTxt.length + config.prefix.length + 1
-    ); //add one for the ! and one for the space
+    var cmdTxt = msg.content
+      .split(' ')[0]
+      .substring(config.prefix.length)
+      .toLowerCase();
+    var suffix = msg.content
+      .substring(cmdTxt.length + config.prefix.length + 1)
+      .toLowerCase(); //add one for the ! and one for the space
     if (msg.isMentioned(bot.user)) {
       try {
-        cmdTxt = msg.content.split(' ')[1];
-        suffix = msg.content.substring(
-          bot.user.mention().length + cmdTxt.length + config.prefix.length + 1
-        );
+        cmdTxt = msg.content.split(' ')[1].toLowerCase();
+        suffix = msg.content
+          .substring(
+            bot.user.mention().length + cmdTxt.length + config.prefix.length + 1
+          )
+          .toLowerCase();
       } catch (e) {
         //no command
         msg.channel.send('Yes?');
@@ -94,11 +80,17 @@ function checkMessageForCommand(msg, isEdit) {
       //help is special since it iterates over the other commands
       if (suffix) {
         var cmds = suffix.split(' ').filter(function(cmd) {
+          if (aliases[cmd]) {
+            cmd = aliases[cmd];
+            return commands[cmd];
+          } else {
           return commands[cmd];
+        }
         });
         var info = '';
         for (var i = 0; i < cmds.length; i++) {
           var cmd = cmds[i];
+          if (aliases[cmd]){cmd = aliases[cmd];}
           info += '**' + config.prefix + cmd + '**';
           var usage = commands[cmd].usage;
           if (usage) {
@@ -152,10 +144,11 @@ function checkMessageForCommand(msg, isEdit) {
         cmd.process(bot, msg, suffix, isEdit);
       } catch (e) {
         var msgTxt = 'command ' + cmdTxt + ' failed :(';
+        var linebreak = '\n-------------------------------------------------\n';
         if (config.debug) {
           msgTxt += '\n' + e.stack;
         }
-        bot.channels.get(LogChannel).send(msgTxt);
+        bot.channels.get(LogChannel).send(msgTxt + linebreak);
       }
     } else {
       return;
@@ -170,6 +163,7 @@ function checkMessageForCommand(msg, isEdit) {
     if (msg.author != bot.user && msg.isMentioned(bot.user)) {
       msg.channel.send('yes?'); //using a mention here can lead to looping
     } else {
+      return;
     }
   }
 }

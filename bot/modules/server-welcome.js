@@ -13,7 +13,7 @@ exports.onUserJoin = function(bot) {
           '1. Be respectful to other community members. Harrasment will not be tolerated \n' +
           '2. Do not spam, advertise or post referral links \n' +
           '3. Use appropriate channels for your discussions/questions. If you are looking for help with RAVEN, use #helpdesk, for price talk, use #rotcex_trading \n' +
-          "4. #thenest discussions should be at least somewhat related to Raven, Off-topic conversation is permitted as long as you're not spammy or dumb about it. \n\n" +
+          '4. #thenest discussions should be at least somewhat related to Raven. \n\n' +
           '__**Helpful hints & links**__\n' +
           '1. Type !tip help to interact with our Tipbot which can be used to send and receive Raven Coins (RVN). **Enable 2FA in your Discord account settings!** \n' +
           '2. Backing up your Raven wallet is your responsbility!\n' +
@@ -115,7 +115,7 @@ exports.welcome = {
           '1. Be respectful to other community members. Harrasment will not be tolerated \n' +
           '2. Do not spam, advertise or post referral links \n' +
           '3. Use appropriate channels for your discussions/questions. If you are looking for help with RAVEN, use #helpdesk, for price talk, use #rotcex_trading \n' +
-          "4. #thenest discussions should be at least somewhat related to Raven, Off-topic conversation is permitted as long as you're not spammy or dumb about it. \n\n" +
+          '4. #thenest discussions should be at least somewhat related to Raven. \n\n' +
           '__**Helpful hints & links**__\n' +
           '1. Type !tip help to interact with our Tipbot which can be used to send and receive Raven Coins (RVN). **Enable 2FA in your Discord account settings!** \n' +
           '2. Backing up your Raven wallet is your responsbility!\n' +

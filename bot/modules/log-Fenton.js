@@ -1,5 +1,5 @@
 let fs = require('fs');
-var moment = require('moment-timezone');
+let moment = require('moment-timezone');
 
 exports.custom = ['Fenton'];
 

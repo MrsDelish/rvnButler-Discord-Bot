@@ -1,5 +1,8 @@
-var tcpp = require('tcp-ping');
-let hasStatusBotChannels = require('../helpers.js').hasStatusBotChannels;
+let tcpp = require('tcp-ping');
+let hasServerWebsiteStatusChannels = require('../helpers.js')
+  .hasServerWebsiteStatusChannels;
+let config = require('config');
+let ChannelID = config.get('Channels').botspam;
 
 exports.commands = ['status'];
 
@@ -13,10 +16,10 @@ exports.status = {
       .filter(function(n) {
         return n !== '';
       });
-    if (!hasStatusBotChannels) {
-      msg.channel
-        .send("can't use this command here")
-        .then(message => message.delete(3000));
+    if (!hasServerWebsiteStatusChannels) {
+      msg.channel.send(
+        'Please use <#' + ChannelID + '> or DMs to talk to status/ping bot.'
+      );
       return;
     }
     var Site = words[0];

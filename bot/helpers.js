@@ -1,10 +1,11 @@
 let config = require('config');
 let permRanks = config.get('moderation');
 let spamChannels = config.get('Channels').botspam;
-let priceBotChannels = config.get('pricebot');
-let hashBotChannels = config.get('hashbot');
-let statsBotChannels = config.get('statsbot');
-let poolsBotChannels = config.get('poolsbot');
+let rvnCalcPriceChannels = config.get('rvnCalcPrice');
+let rvnStatsNetworkChannels = config.get('rvnStatsNetwork');
+let rvnStatsMarketChannels = config.get('rvnStatsMarket');
+let rvnPoolsChannels = config.get('rvnPools');
+let serverWebsiteStatusChannels = config.get('serverWebsiteStatus');
 
 // Checks if user is allowed to use a command only for mods/team members
 exports.hasPerms = function(msg) {
@@ -21,32 +22,32 @@ exports.inSpam = function(msg) {
   return spamChannels == msg.channel.id;
 };
 
-// Checks if Message was sent from a channel in priceBot Channels list
-exports.hasPriceBotChannels = function(msg) {
-  return priceBotChannels.channels.includes(msg.channel.id);
+// Checks if Message was sent from a channel in rvnCalcPrice Channels list
+exports.hasRvnCalcPriceChannels = function(msg) {
+  return rvnCalcPriceChannels.channels.includes(msg.channel.id);
 };
 
-// Checks if Message was sent from a channel in hashBot Channels list
-exports.hasHashBotChannels = function(msg) {
-  return hashBotChannels.channels.includes(msg.channel.id);
+// Checks if Message was sent from a channel in server-stats-network Channels list
+exports.hasRvnStatsNetworkChannels = function(msg) {
+  return rvnStatsNetworkChannels.channels.includes(msg.channel.id);
 };
 
-// Checks if Message was sent from a channel in statsBot Channels list
-exports.hasStatsBotChannels = function(msg) {
-  return statsBotChannels.channels.includes(msg.channel.id);
+// Checks if Message was sent from a channel in rvnStatsMarket Channels list
+exports.hasRvnStatsMarketChannels = function(msg) {
+  return rvnStatsMarketChannels.channels.includes(msg.channel.id);
 };
 
-// Checks if Message was sent from a channel in poolsBot Channels list
-exports.hasPoolsBotChannels = function(msg) {
-  return poolsBotChannels.channels.includes(msg.channel.id);
+// Checks if Message was sent from a channel in RvnPools Channels list
+exports.hasRvnPoolsChannels = function(msg) {
+  return rvnPoolsChannels.channels.includes(msg.channel.id);
 };
 
-// Checks if Message was sent from a channel in poolsBot Channels list
+// Checks if Message was sent from a channel in RvnPools Channels list
 exports.hasDediPoolsChannels = function(msg) {
-  return poolsBotChannels.dedichannels.includes(msg.channel.id);
+  return rvnPoolsChannels.dedichannels.includes(msg.channel.id);
 };
 
-// Checks if Message was sent from a channel in statusBot Channels list
-exports.hasStatusBotChannels = function(msg) {
-  return statusBotChannels.channels.includes(msg.channel.id);
+// Checks if Message was sent from a channel in WebsiteStatus Channels list
+exports.hasServerWebsiteStatusChannels = function(msg) {
+  return serverWebsiteStatus.channels.includes(msg.channel.id);
 };

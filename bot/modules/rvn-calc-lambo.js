@@ -5,9 +5,9 @@ let numeral = require('numeral');
 let request = require('request');
 let config = require('config');
 let needle = require('needle');
-let hasPriceBotChannels = require('../helpers.js').hasPriceBotChannels;
+let hasRvnCalcPriceChannels = require('../helpers.js').hasRvnCalcPriceChannels;
 let inPrivate = require('../helpers.js').inPrivate;
-let ChannelID = config.get('pricebot').mainchannel;
+let ChannelID = config.get('Channels').botspam;
 let responseDebug = false;
 
 exports.commands = [
@@ -24,7 +24,7 @@ exports.lambo = {
       .tz('America/Los_Angeles')
       .format('MM-DD-YYYY hh:mm a');
 
-    if (!hasPriceBotChannels(msg) && !inPrivate(msg)) {
+    if (!hasRvnCalcPriceChannels(msg) && !inPrivate(msg)) {
       msg.channel.send(
         'Please use <#' + ChannelID + '> or DMs to talk to price bot.'
       );
