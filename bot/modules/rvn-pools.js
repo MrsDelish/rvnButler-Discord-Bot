@@ -10,9 +10,9 @@ exports.commands = [
 ];
 
 exports.pools = {
-  usage:
-    '<poolname>',
-  description: 'Rvn Pools List\noptionally add pools name to return just that pools setup',
+  usage: '<poolname>',
+  description:
+    'Rvn Pools List\noptionally add pools name to return just that pools setup',
   process: function(bot, msg, suffix) {
     let msgauthor = msg.author;
     var Pool1 =
