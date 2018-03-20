@@ -96,44 +96,6 @@ exports.TimedHash = function(bot) {
                     algolist[currentAlgo[14]] +
                     '->' +
                     algolist[currentAlgo[15]];
-                  var nextBlockHash = response.body.hash;
-                  var nextBlockAlgo = nextBlockHash.substr(
-                    nextBlockHash.length - 17
-                  );
-                  var nextAlgo = currentBlockAlgo.split('');
-                  var nextAlgoOrder =
-                    algolist[nextAlgo[0]] +
-                    '->' +
-                    algolist[nextAlgo[1]] +
-                    '->' +
-                    algolist[nextAlgo[2]] +
-                    '->' +
-                    algolist[nextAlgo[3]] +
-                    '->' +
-                    algolist[nextAlgo[4]] +
-                    '->' +
-                    algolist[nextAlgo[5]] +
-                    '->' +
-                    algolist[nextAlgo[6]] +
-                    '->' +
-                    algolist[nextAlgo[7]] +
-                    '->\n' +
-                    algolist[nextAlgo[8]] +
-                    '->' +
-                    algolist[nextAlgo[9]] +
-                    '->' +
-                    algolist[nextAlgo[10]] +
-                    '->' +
-                    algolist[nextAlgo[11]] +
-                    '->' +
-                    algolist[nextAlgo[12]] +
-                    '->' +
-                    algolist[nextAlgo[13]] +
-                    '->' +
-                    algolist[nextAlgo[14]] +
-                    '->' +
-                    algolist[nextAlgo[15]];
-                  var nextBlockHeight = currentHeight + 1;
                   var description =
                     'Hashrate: ' +
                     currentHashrate.toFixed(2) +
@@ -150,17 +112,8 @@ exports.TimedHash = function(bot) {
                     'Algo Hash: ' +
                     currentBlockAlgo +
                     '\n' +
-                    'Algo Order: ' +
+                    'Algo Order: \n' +
                     currentAlgoOrder +
-                    '\n\n' +
-                    'Next block: ' +
-                    nextBlockHeight +
-                    '\n' +
-                    'Next Algo Hash: ' +
-                    numberWithCommas(nextBlockAlgo) +
-                    '\n' +
-                    'Next Algo Order: \n' +
-                    nextAlgoOrder +
                     '\n\n' +
                     'Sources: https://rvn.hash4.life';
                   const embed = {
