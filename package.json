@@ -15,6 +15,7 @@
     "numeral": "^2.0.6",
     "request": "^2.83.0",
     "tcp-ping": "^0.1.1",
+    "underscore-node": "^0.1.2",
     "wget": "^0.0.1"
   },
   "scripts": {

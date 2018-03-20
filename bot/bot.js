@@ -2,6 +2,7 @@
 
 // Load up libraries
 const Discord = require('discord.js');
+let _ = require('underscore-node');
 // Load config!
 let config = require('config');
 let LogChannel = config.get('moderation').logchannel;
@@ -84,13 +85,15 @@ function checkMessageForCommand(msg, isEdit) {
             cmd = aliases[cmd];
             return commands[cmd];
           } else {
-          return commands[cmd];
-        }
+            return commands[cmd];
+          }
         });
         var info = '';
         for (var i = 0; i < cmds.length; i++) {
           var cmd = cmds[i];
-          if (aliases[cmd]){cmd = aliases[cmd];}
+          if (aliases[cmd]) {
+            cmd = aliases[cmd];
+          }
           info += '**' + config.prefix + cmd + '**';
           var usage = commands[cmd].usage;
           if (usage) {
@@ -105,7 +108,20 @@ function checkMessageForCommand(msg, isEdit) {
           }
           info += '\n';
         }
-        msg.channel.send(info);
+        var aliasnames = [];
+        _.groupBy(aliases, function(key, value) {
+          if (key == cmd) {
+            aliasnames.push(value);
+          }
+        });
+        var aliasnames = JSON.stringify(aliasnames)
+          .replace(']', '')
+          .replace('[', '');
+        if (info || cmd) {
+          msg.channel.send(
+            info + '**Other Activators**: \n"' + cmd + '",' + aliasnames
+          );
+        }
       } else {
         msg.author.send('**Available Commands:**').then(function() {
           var batch = '';
