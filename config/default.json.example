@@ -88,7 +88,7 @@
       "hash": "424256434264604682",
       "stats": "424256369470865408",
       // how often bots will post in milliseconds
-      "timerhash": 600000,
-      "timerstats": 600000
+      "timerhash": 1800000,
+      "timerstats": 1800000
   }
 }
