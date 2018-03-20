@@ -8,9 +8,9 @@ let ChannelID = config.get('Channels').botspam;
 exports.commands = ['price'];
 
 exports.price = {
-  usage: '<amount> <fiat/coin>',
+  usage: '<fiat/coin> <amount> <fiat/coin>',
   description:
-    'display price of RVN in specified alt coin/fiat from crypto compare\n  **Example:** *!price USD 100*\n  **Supported Fiats:** *usd*, *eur*, *gbp*, *aud*, *brl*, *cad*, *chf*, *clp*, *cny*, *czk*, *dkk*, *hkd*, *huf*, *idr*, *ils*, *inr*, *jpy*, *krw*, *mxn*, *myr*, *nok*, *nzd*, *php*, *pkr*, *pln*, *rub*, *sek*, *sgd*, *thb*, *try*, *twd*, *zar* (case-insensitive)',
+    'display price of specified coin/fiat in specified coin/fiat from crypto compare\n  **Example:** *!price RVN 100 USD*\n  **Supported Fiats:** *usd*, *eur*, *gbp*, *aud*, *brl*, *cad*, *chf*, *clp*, *cny*, *czk*, *dkk*, *hkd*, *huf*, *idr*, *ils*, *inr*, *jpy*, *krw*, *mxn*, *myr*, *nok*, *nzd*, *php*, *pkr*, *pln*, *rub*, *sek*, *sgd*, *thb*, *try*, *twd*, *zar* (case-insensitive)',
   process: function(bot, msg, suffix) {
     let dt = new Date();
     let timestamp = moment()
@@ -29,20 +29,26 @@ exports.price = {
         .filter(function(n) {
           return n !== '';
         });
-      var currency1 = 'RVN';
-      if (words[1] == undefined) {
+      if (words[0] == undefined) {
+        var currency1 = 'RVN';
+      } else {
+        var currency1 = words[0].toUpperCase();
+      }
+      if (words[2] == undefined) {
         var currency2 = 'BTC';
       } else {
-        var currency2 = words[1].toUpperCase();
+        var currency2 = words[2].toUpperCase();
       }
-      if (words[0] == undefined) {
+      if (words[1] == undefined) {
         var amount = '1';
       } else {
-        if (getValidatedAmount(words[0]) === null) {
-          msg.reply('Please specify a number! <fiat/coin> <amount>');
+        if (getValidatedAmount(words[1]) === null) {
+          msg.reply(
+            'Invalid Amount Please specify a number!\n!price <fiat/coin> <amount> <fiat/coin>'
+          );
           return;
         }
-        var amount = words[0].toUpperCase();
+        var amount = words[1].toUpperCase();
       }
     } else {
       var currency1 = 'RVN';
@@ -58,97 +64,133 @@ exports.price = {
       } else {
         JSON1 = response.body;
         if (
-          Number(JSON1.findIndex(symbols => symbols.symbol == currency2)) != -1
+          Number(JSON1.findIndex(symbols => symbols.symbol == currency1)) != -1
         ) {
-          var hasMatch = true;
+          var hasMatch1 = true;
         } else {
-          var hasMatch = false;
+          var hasMatch1 = false;
         }
         if (
-          currency2 == 'USD' ||
-          currency2 == 'usd' ||
-          currency2 == 'AUD' ||
-          currency2 == 'aud' ||
-          currency2 == 'BRL' ||
-          currency2 == 'brl' ||
-          currency2 == 'CAD' ||
-          currency2 == 'cad' ||
-          currency2 == 'CHF' ||
-          currency2 == 'chf' ||
-          currency2 == 'CLP' ||
-          currency2 == 'clp' ||
-          currency2 == 'CNY' ||
-          currency2 == 'cny' ||
-          currency2 == 'CZK' ||
-          currency2 == 'czk' ||
-          currency2 == 'DKK' ||
-          currency2 == 'dkk' ||
-          currency2 == 'EUR' ||
-          currency2 == 'eur' ||
-          currency2 == 'GBP' ||
-          currency2 == 'gbp' ||
-          currency2 == 'HKD' ||
-          currency2 == 'hkd' ||
-          currency2 == 'HUF' ||
-          currency2 == 'huf' ||
-          currency2 == 'IDR' ||
-          currency2 == 'idr' ||
-          currency2 == 'ILS' ||
-          currency2 == 'ils' ||
-          currency2 == 'INR' ||
-          currency2 == 'inr' ||
-          currency2 == 'JPY' ||
-          currency2 == 'jpy' ||
-          currency2 == 'KRW' ||
-          currency2 == 'krw' ||
-          currency2 == 'MXN' ||
-          currency2 == 'mxn' ||
-          currency2 == 'MYR' ||
-          currency2 == 'myr' ||
-          currency2 == 'NOK' ||
-          currency2 == 'nok' ||
-          currency2 == 'NZD' ||
-          currency2 == 'nzd' ||
-          currency2 == 'PHP' ||
-          currency2 == 'php' ||
-          currency2 == 'PKR' ||
-          currency2 == 'pkr' ||
-          currency2 == 'PLN' ||
-          currency2 == 'pln' ||
-          currency2 == 'RUB' ||
-          currency2 == 'rub' ||
-          currency2 == 'SEK' ||
-          currency2 == 'sek' ||
-          currency2 == 'SGD' ||
-          currency2 == 'sgd' ||
-          currency2 == 'THB' ||
-          currency2 == 'thb' ||
-          currency2 == 'TRY' ||
-          currency2 == 'try' ||
-          currency2 == 'TWD' ||
-          currency2 == 'twd' ||
-          currency2 == 'ZAR' ||
-          currency2 == 'zar'
+          Number(JSON1.findIndex(symbols => symbols.symbol == currency2)) != -1
         ) {
-          var symbol = currency1;
+          var hasMatch2 = true;
         } else {
-          if (!hasMatch) {
-            msg.channel.send('Invalid Fiat/Alt!');
+          var hasMatch2 = false;
+        }
+        if (
+          currency1.toLowerCase() == 'usd' ||
+          currency1.toLowerCase() == 'aud' ||
+          currency1.toLowerCase() == 'brl' ||
+          currency1.toLowerCase() == 'cad' ||
+          currency1.toLowerCase() == 'chf' ||
+          currency1.toLowerCase() == 'clp' ||
+          currency1.toLowerCase() == 'cny' ||
+          currency1.toLowerCase() == 'czk' ||
+          currency1.toLowerCase() == 'dkk' ||
+          currency1.toLowerCase() == 'eur' ||
+          currency1.toLowerCase() == 'gbp' ||
+          currency1.toLowerCase() == 'hkd' ||
+          currency1.toLowerCase() == 'huf' ||
+          currency1.toLowerCase() == 'idr' ||
+          currency1.toLowerCase() == 'ils' ||
+          currency1.toLowerCase() == 'inr' ||
+          currency1.toLowerCase() == 'jpy' ||
+          currency1.toLowerCase() == 'krw' ||
+          currency1.toLowerCase() == 'mxn' ||
+          currency1.toLowerCase() == 'myr' ||
+          currency1.toLowerCase() == 'nok' ||
+          currency1.toLowerCase() == 'nzd' ||
+          currency1.toLowerCase() == 'php' ||
+          currency1.toLowerCase() == 'pkr' ||
+          currency1.toLowerCase() == 'pln' ||
+          currency1.toLowerCase() == 'rub' ||
+          currency1.toLowerCase() == 'sek' ||
+          currency1.toLowerCase() == 'sgd' ||
+          currency1.toLowerCase() == 'thb' ||
+          currency1.toLowerCase() == 'try' ||
+          currency1.toLowerCase() == 'twd' ||
+          currency1.toLowerCase() == 'zar'
+        ) {
+          var symbol2 = currency1;
+          var fiatToAlt = true;
+        } else {
+          if (!hasMatch1) {
+            msg.channel.send('Invalid Fiat/Alt for first currency!');
             return;
           } else {
-            var symbol = currency1;
+            var symbol1 = currency1;
+            var fiatToAlt = false;
           }
         }
-        position = Number(JSON1.findIndex(symbols => symbols.symbol == symbol));
+        if (
+          currency2.toLowerCase() == 'usd' ||
+          currency2.toLowerCase() == 'aud' ||
+          currency2.toLowerCase() == 'brl' ||
+          currency2.toLowerCase() == 'cad' ||
+          currency2.toLowerCase() == 'chf' ||
+          currency2.toLowerCase() == 'clp' ||
+          currency2.toLowerCase() == 'cny' ||
+          currency2.toLowerCase() == 'czk' ||
+          currency2.toLowerCase() == 'dkk' ||
+          currency2.toLowerCase() == 'eur' ||
+          currency2.toLowerCase() == 'gbp' ||
+          currency2.toLowerCase() == 'hkd' ||
+          currency2.toLowerCase() == 'huf' ||
+          currency2.toLowerCase() == 'idr' ||
+          currency2.toLowerCase() == 'ils' ||
+          currency2.toLowerCase() == 'inr' ||
+          currency2.toLowerCase() == 'jpy' ||
+          currency2.toLowerCase() == 'krw' ||
+          currency2.toLowerCase() == 'mxn' ||
+          currency2.toLowerCase() == 'myr' ||
+          currency2.toLowerCase() == 'nok' ||
+          currency2.toLowerCase() == 'nzd' ||
+          currency2.toLowerCase() == 'php' ||
+          currency2.toLowerCase() == 'pkr' ||
+          currency2.toLowerCase() == 'pln' ||
+          currency2.toLowerCase() == 'rub' ||
+          currency2.toLowerCase() == 'sek' ||
+          currency2.toLowerCase() == 'sgd' ||
+          currency2.toLowerCase() == 'thb' ||
+          currency2.toLowerCase() == 'try' ||
+          currency2.toLowerCase() == 'twd' ||
+          currency2.toLowerCase() == 'zar'
+        ) {
+          var symbol2 = currency2;
+        } else {
+          if (!hasMatch2) {
+            msg.channel.send('Invalid Fiat/Alt for second currency!');
+            return;
+          } else {
+            if (fiatToAlt) {
+              var symbol1 = currency2;
+            } else {
+              var symbol2 = currency2;
+            }
+          }
+        }
+        position = Number(
+          JSON1.findIndex(symbols => symbols.symbol == symbol1)
+        );
+        if (!response.body[position]) {
+          msg.channel.send('please use atleast 1 crypto currency!');
+          return;
+        }
         name = response.body[position].id;
         apiurl = 'https://api.coinmarketcap.com/v1/ticker/' + name + '/';
-        needle.get(apiurl + '?convert=' + currency2, function(error, response) {
+        needle.get(apiurl + '?convert=' + symbol2, function(error, response) {
           if (error || response.statusCode !== 200) {
             msg.channel.send('coinmarketcap API is not available');
           } else {
-            var newdata = 'price_' + currency2.toLowerCase();
+            var newdata = 'price_' + symbol2.toLowerCase();
             var price = Number(response.body[0][newdata]);
-            var newprice = price * amount;
+            console.log(price);
+            console.log(amount);
+            if (!fiatToAlt) {
+              var newprice = price * amount;
+            } else {
+              var newprice = amount / price;
+            }
             var message =
               amount +
               ' ' +
