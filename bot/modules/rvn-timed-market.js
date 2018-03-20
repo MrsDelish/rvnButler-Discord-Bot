@@ -107,17 +107,17 @@ exports.TimedStats = function(bot) {
                       statsurl +
                       ')\n' +
                       'USD: [$' +
-                      price_usd.toFixed(2) +
+                      price_usd.toFixed(4) +
                       '](' +
                       statsurl +
                       ') \n' +
                       'EUR: [€' +
-                      price_eur.toFixed(2) +
+                      price_eur.toFixed(4) +
                       '](' +
                       statsurl +
                       ') \n' +
                       'GBP: [£' +
-                      price_gbp.toFixed(2) +
+                      price_gbp.toFixed(4) +
                       '](' +
                       statsurl +
                       ') \n\n' +
