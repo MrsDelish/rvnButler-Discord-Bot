@@ -18,7 +18,7 @@ exports.botmaster = {
     logStream.write(
       '\r\n[' +
         time +
-        '][' +
+        ' PST][' +
         msg.channel.name +
         ']' +
         msg.author.username +

@@ -3,7 +3,7 @@ let botconfig = config.get('bot');
 let serverRolesetter = config.get('serverRolesetter');
 let inPrivate = require('../helpers.js').inPrivate;
 let inSpam = require('../helpers.js').inSpam;
-let ChannelID = config.get('Channels').botspam;
+let channelID = config.get('General').Channels.botspam;
 
 exports.commands = ['addrole', 'delrole', 'roles'];
 
@@ -17,7 +17,7 @@ exports.addrole = {
     }
     if (!inSpam(msg)) {
       msg.channel.send(
-        'please use <#' + ChannelID + '> to talk to RoleSetter Bot'
+        'please use <#' + channelID + '> to talk to RoleSetter Bot'
       );
       return;
     }
@@ -67,7 +67,7 @@ exports.delrole = {
     }
     if (!inSpam(msg)) {
       msg.channel.send(
-        'please use <#' + ChannelID + '> to talk to RoleSetter Bot'
+        'please use <#' + channelID + '> to talk to RoleSetter Bot'
       );
       return;
     }
@@ -121,7 +121,7 @@ exports.roles = {
     }
     if (!inSpam(msg)) {
       msg.channel.send(
-        'please use <#' + ChannelID + '> to talk to RoleSetter Bot'
+        'please use <#' + channelID + '> to talk to RoleSetter Bot'
       );
       return;
     }

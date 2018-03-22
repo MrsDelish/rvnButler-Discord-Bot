@@ -15,6 +15,7 @@
     "numeral": "^2.0.6",
     "request": "^2.83.0",
     "tcp-ping": "^0.1.1",
+    "twitter-stream-api": "^0.5.2",
     "underscore-node": "^0.1.2",
     "wget": "^0.0.1"
   },
@@ -27,11 +28,11 @@
     "husky": "^0.14.3",
     "prettier": "1.8.1"
   },
-  "name": "rvn-discord-bot",
+  "name": "rvnButler-discord-bot",
   "version": "0.0.1",
-  "description": "rvn discrod bot",
+  "description": "rvnButler discrod bot",
   "main": "app.js",
-  "repository": "https://github.com/MSFTserverrvn-discord-bot",
+  "repository": "https://github.com/MSFTserver/rvnButler-Discord-Bot",
   "author": "MSFTserver <msftserver@gmail.com>",
   "license": "MIT"
 }

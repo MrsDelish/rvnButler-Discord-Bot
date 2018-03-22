@@ -2,14 +2,18 @@ let needle = require('needle');
 let config = require('config');
 let hasRvnCalcPriceChannels = require('../helpers.js').hasRvnCalcPriceChannels;
 let inPrivate = require('../helpers.js').inPrivate;
-let ChannelID = config.get('Channels').botspam;
+let channelID = config.get('General').Channels.botspam;
+let explorerApiUrl = config.get('General').urls.explorerApiUrl;
+let coinSymbol = config.get('General').urls.CoinSymbol;
+
 exports.commands = [
   'balance' // command that is in this file, every command needs it own export as shown below
 ];
 
 exports.balance = {
   usage: '<Address>',
-  description: 'Displays current blanace of raven address supplied',
+  description:
+    'Displays current blanace of ' + coinSymbol + ' address supplied',
   process: function(bot, msg, suffix) {
     var command = '!balance';
     words = suffix
@@ -36,7 +40,7 @@ exports.balance = {
     }
     if (!inPrivate(msg) && !hasRvnCalcPriceChannels(msg)) {
       msg.channel.send(
-        'Please use <#' + ChannelID + '> or DMs to talk to balance bot.'
+        'Please use <#' + channelID + '> or DMs to talk to balance bot.'
       );
       return;
     }
@@ -44,17 +48,25 @@ exports.balance = {
       msg.channel.send('please supply a address!');
       return;
     }
-    needle.get('https://rvn.hash4.life/ext/getbalance/' + address, function(
+    needle.get(explorerApiUrl + 'ext/getbalance/' + address, function(
       error,
       response
     ) {
       if (error || response.statusCode !== 200) {
-        msg.channel.send('rvn.hash4.life API is not available');
+        msg.channel.send(explorerApiUrl + ' API is not available');
       } else {
         var data = response.body;
-        var balance = Number(data).toFixed(2);
+        if (data.error){
+          msg.channel.send('Error: ' + data.error);
+          return
+        }
+        var balance = data.split('.');
         var description =
-          'Current balance: ' + numberWithCommas(balance) + ' RVN';
+          'Current balance: ' +
+          numberWithCommas(balance[0]) + '.' + balance[1] +
+          ' ' +
+          coinSymbol +
+          '';
         msg.channel.send(description);
         return;
       }

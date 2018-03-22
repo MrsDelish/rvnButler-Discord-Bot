@@ -6,7 +6,10 @@ let moment = require('moment-timezone');
 let hasRvnStatsNetworkChannels = require('../helpers.js')
   .hasRvnStatsNetworkChannels;
 let inPrivate = require('../helpers.js').inPrivate;
-let ChannelID = config.get('Channels').botspam;
+let channelID = config.get('General').Channels.botspam;
+let explorerApiUrl = config.get('General').urls.explorerApiUrl;
+let coinName = config.get('General').urls.CoinName;
+let coinSymbol = config.get('General').urls.CoinSymbol;
 
 exports.commands = ['network'];
 
@@ -16,7 +19,7 @@ exports.network = {
   process: function(bot, msg) {
     if (!inPrivate(msg) && !hasRvnStatsNetworkChannels(msg)) {
       msg.channel.send(
-        'Please use <#' + ChannelID + '> or DMs to talk to hash bot.'
+        'Please use <#' + channelID + '> or DMs to talk to hash bot.'
       );
       return;
     }
@@ -42,26 +45,23 @@ exports.network = {
       e: 'whirlpool',
       f: 'sha512'
     };
-    needle.get('https://rvn.hash4.life/api/getmininginfo', function(
-      error,
-      response
-    ) {
+    needle.get(explorerApiUrl + 'api/getmininginfo', function(error, response) {
       if (error || response.statusCode !== 200) {
-        msg.channel.send('rvn.hash4.life API is not available');
+        msg.channel.send(explorerApiUrl + ' API is not available');
       } else {
         var currentHeight = Number(response.body.blocks);
         var currentHashrate = Number(response.body.networkhashps) / 1000000000;
         var currentDifficulty = Number(response.body.difficulty);
         var currentReward = 5000;
         axios
-          .get('https://rvn.hash4.life/api/getblockhash?index=' + currentHeight)
+          .get(explorerApiUrl + 'api/getblockhash?index=' + currentHeight)
           .then(response => {
             var blockHash = response.data;
             needle.get(
-              'https://rvn.hash4.life/api/getblock?hash=' + blockHash,
+              explorerApiUrl + 'api/getblock?hash=' + blockHash,
               function(error, response) {
                 if (error || response.statusCode !== 200) {
-                  msg.channel.send('rvn.hash4.life API is not available');
+                  msg.channel.send(explorerApiUrl + ' API is not available');
                 } else {
                   var currentBlockHash = response.body.previousblockhash;
                   var currentBlockAlgo = currentBlockHash.substr(
@@ -83,7 +83,9 @@ exports.network = {
                     '\n' +
                     'Block Reward: ' +
                     numberWithCommas(currentReward.toFixed(0)) +
-                    ' RVN\n\n' +
+                    ' ' +
+                    coinSymbol +
+                    '\n\n' +
                     'Current block: ' +
                     numberWithCommas(currentHeight) +
                     '\n' +
@@ -123,15 +125,16 @@ exports.network = {
                     '->' +
                     algolist[currentAlgo[15]] +
                     '\n\n' +
-                    'Sources: https://rvn.hash4.life';
+                    'Sources: ' +
+                    explorerApiUrl;
                   const embed = {
                     description: description,
                     color: 7976557,
                     footer: {
-                      text: 'Last Updated | ' + timestamp
+                      text: 'Last Updated | ' + timestamp + ' PST'
                     },
                     author: {
-                      name: 'Ravencoin Network Stats',
+                      name: coinName + '(' + coinSymbol + ') Network Stats',
                       icon_url: 'https://i.imgur.com/yWf5USu.png'
                     }
                   };

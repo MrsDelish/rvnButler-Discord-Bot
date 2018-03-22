@@ -15,7 +15,7 @@ exports.Fenton = function(bot) {
       logStream.write(
         '\r\n[' +
           time +
-          '][' +
+          ' PST][' +
           msg.channel.name +
           ']Bruce Fenton: ' +
           msg.content

@@ -5,7 +5,11 @@ let moment = require('moment-timezone');
 let hasRvnStatsNetworkChannels = require('../helpers.js')
   .hasRvnStatsNetworkChannels;
 let inPrivate = require('../helpers.js').inPrivate;
-let ChannelID = config.get('Channels').botspam;
+let channelID = config.get('General').Channels.botspam;
+let cmcApiUrl = config.get('General').urls.cmcApiUrl;
+let explorerApiUrl = config.get('General').urls.explorerApiUrl;
+let coinName = config.get('General').urls.CoinName;
+let coinSymbol = config.get('General').urls.CoinSymbol;
 
 exports.commands = ['hashpower'];
 
@@ -16,10 +20,14 @@ exports.hashpower = {
   process: function(bot, msg, suffix) {
     if (!inPrivate(msg) && !hasRvnStatsNetworkChannels(msg)) {
       msg.channel.send(
-        'Please use <#' + ChannelID + '> or DMs to talk to hash bot.'
+        'Please use <#' + channelID + '> or DMs to talk to hash bot.'
       );
       return;
     }
+    let dt = new Date();
+    let timestamp = moment()
+      .tz('America/Los_Angeles')
+      .format('MM-DD-YYYY hh:mm a');
     var words = suffix
       .trim()
       .split(' ')
@@ -48,11 +56,12 @@ exports.hashpower = {
     ) {
       otherfiat = 'USD';
     }
-    var cmcurl =
-      'https://api.coinmarketcap.com/v1/ticker/ravencoin/?convert=' + otherfiat;
-    needle.get(cmcurl, function(error, response) {
+    needle.get(cmcApiUrl + coinName + '/?convert=' + otherfiat, function(
+      error,
+      response
+    ) {
       if (error || response.statusCode !== 200) {
-        msg.channel.send('coinmarketcap API is not available');
+        msg.channel.send(cmcApiUrl + ' API is not available');
       } else {
         var newdata = 'price_' + otherfiat.toLowerCase();
         var Otherprice = Number(response.body[0][newdata]);
@@ -62,31 +71,31 @@ exports.hashpower = {
           var newdata = 'price_' + otherfiat.toLowerCase();
           var Otherprice = response.body[0][newdata];
           var sign = '$';
-          var fixamount = 2;
+          var fixamount = 4;
         }
         if (otherfiat == 'AUD' || otherfiat == 'aud') {
           var newdata = 'price_' + otherfiat.toLowerCase();
           var Otherprice = response.body[0][newdata];
           var sign = 'AU$';
-          var fixamount = 2;
+          var fixamount = 4;
         }
         if (otherfiat == 'BRL' || otherfiat == 'brl') {
           var newdata = 'price_' + otherfiat.toLowerCase();
           var Otherprice = response.body[0][newdata];
           var sign = 'R$';
-          var fixamount = 2;
+          var fixamount = 4;
         }
         if (otherfiat == 'CAD' || otherfiat == 'cad') {
           var newdata = 'price_' + otherfiat.toLowerCase();
           var Otherprice = response.body[0][newdata];
           var sign = 'Can$';
-          var fixamount = 2;
+          var fixamount = 4;
         }
         if (otherfiat == 'CHF' || otherfiat == 'chf') {
           var newdata = 'price_' + otherfiat.toLowerCase();
           var Otherprice = response.body[0][newdata];
           var sign = 'Fr';
-          var fixamount = 2;
+          var fixamount = 4;
         }
         if (otherfiat == 'CLP' || otherfiat == 'clp') {
           var newdata = 'price_' + otherfiat.toLowerCase();
@@ -97,165 +106,165 @@ exports.hashpower = {
           var newdata = 'price_' + otherfiat.toLowerCase();
           var Otherprice = response.body[0][newdata];
           var sign = '¥';
-          var fixamount = 2;
+          var fixamount = 4;
         }
         if (otherfiat == 'CZK' || otherfiat == 'czk') {
           var newdata = 'price_' + otherfiat.toLowerCase();
           var Otherprice = response.body[0][newdata];
           var sign = 'Kč';
-          var fixamount = 2;
+          var fixamount = 4;
         }
         if (otherfiat == 'DKK' || otherfiat == 'dkk') {
           var newdata = 'price_' + otherfiat.toLowerCase();
           var Otherprice = response.body[0][newdata];
           var sign = 'kr';
-          var fixamount = 2;
+          var fixamount = 4;
         }
         if (otherfiat == 'EUR' || otherfiat == 'eur') {
           var newdata = 'price_' + otherfiat.toLowerCase();
           var Otherprice = response.body[0][newdata];
           var sign = '€';
-          var fixamount = 2;
+          var fixamount = 4;
         }
         if (otherfiat == 'GBP' || otherfiat == 'gbp') {
           var newdata = 'price_' + otherfiat.toLowerCase();
           var Otherprice = response.body[0][newdata];
           var sign = '£';
-          var fixamount = 2;
+          var fixamount = 4;
         }
         if (otherfiat == 'HKD' || otherfiat == 'hkd') {
           var newdata = 'price_' + otherfiat.toLowerCase();
           var Otherprice = response.body[0][newdata];
           var sign = 'HKD$';
-          var fixamount = 2;
+          var fixamount = 4;
         }
         if (otherfiat == 'HUF' || otherfiat == 'huf') {
           var newdata = 'price_' + otherfiat.toLowerCase();
           var Otherprice = response.body[0][newdata];
           var sign = 'Ft';
-          var fixamount = 2;
+          var fixamount = 4;
         }
         if (otherfiat == 'IDR' || otherfiat == 'idr') {
           var newdata = 'price_' + otherfiat.toLowerCase();
           var Otherprice = response.body[0][newdata];
           var sign = 'Rp';
-          var fixamount = 2;
+          var fixamount = 4;
         }
         if (otherfiat == 'ILS' || otherfiat == 'ils') {
           var newdata = 'price_' + otherfiat.toLowerCase();
           var Otherprice = response.body[0][newdata];
           var sign = '₪';
-          var fixamount = 2;
+          var fixamount = 4;
         }
         if (otherfiat == 'INR' || otherfiat == 'inr') {
           var newdata = 'price_' + otherfiat.toLowerCase();
           var Otherprice = response.body[0][newdata];
           var sign = '₹';
-          var fixamount = 2;
+          var fixamount = 4;
         }
         if (otherfiat == 'JPY' || otherfiat == 'jpy') {
           var newdata = 'price_' + otherfiat.toLowerCase();
           var Otherprice = response.body[0][newdata];
           var sign = '¥';
-          var fixamount = 2;
+          var fixamount = 4;
         }
         if (otherfiat == 'KRW' || otherfiat == 'krw') {
           var newdata = 'price_' + otherfiat.toLowerCase();
           var Otherprice = response.body[0][newdata];
           var sign = '‎₩';
-          var fixamount = 2;
+          var fixamount = 4;
         }
         if (otherfiat == 'MXN' || otherfiat == 'mxn') {
           var newdata = 'price_' + otherfiat.toLowerCase();
           var Otherprice = response.body[0][newdata];
           var sign = 'MXN$';
-          var fixamount = 2;
+          var fixamount = 4;
         }
         if (otherfiat == 'MYR' || otherfiat == 'myr') {
           var newdata = 'price_' + otherfiat.toLowerCase();
           var Otherprice = response.body[0][newdata];
           var sign = 'RM';
-          var fixamount = 2;
+          var fixamount = 4;
         }
         if (otherfiat == 'NOK' || otherfiat == 'nok') {
           var newdata = 'price_' + otherfiat.toLowerCase();
           var Otherprice = response.body[0][newdata];
           var sign = 'kr';
-          var fixamount = 2;
+          var fixamount = 4;
         }
         if (otherfiat == 'NZD' || otherfiat == 'nzd') {
           var newdata = 'price_' + otherfiat.toLowerCase();
           var Otherprice = response.body[0][newdata];
           var sign = 'NZD$';
-          var fixamount = 2;
+          var fixamount = 4;
         }
         if (otherfiat == 'PHP' || otherfiat == 'php') {
           var newdata = 'price_' + otherfiat.toLowerCase();
           var Otherprice = response.body[0][newdata];
           var sign = '₱';
-          var fixamount = 2;
+          var fixamount = 4;
         }
         if (otherfiat == 'PKR' || otherfiat == 'pkr') {
           var newdata = 'price_' + otherfiat.toLowerCase();
           var Otherprice = response.body[0][newdata];
           var sign = '₨';
-          var fixamount = 2;
+          var fixamount = 4;
         }
         if (otherfiat == 'PLN' || otherfiat == 'pln') {
           var newdata = 'price_' + otherfiat.toLowerCase();
           var Otherprice = response.body[0][newdata];
           var sign = 'zł';
-          var fixamount = 2;
+          var fixamount = 4;
         }
         if (otherfiat == 'RUB' || otherfiat == 'rub') {
           var newdata = 'price_' + otherfiat.toLowerCase();
           var Otherprice = response.body[0][newdata];
           var sign = '₽';
-          var fixamount = 2;
+          var fixamount = 4;
         }
         if (otherfiat == 'SEK' || otherfiat == 'sek') {
           var newdata = 'price_' + otherfiat.toLowerCase();
           var Otherprice = response.body[0][newdata];
           var sign = 'kr';
-          var fixamount = 2;
+          var fixamount = 4;
         }
         if (otherfiat == 'SGD' || otherfiat == 'sgd') {
           var newdata = 'price_' + otherfiat.toLowerCase();
           var Otherprice = response.body[0][newdata];
           var sign = 'S$';
-          var fixamount = 2;
+          var fixamount = 4;
         }
         if (otherfiat == 'THB' || otherfiat == 'thb') {
           var newdata = 'price_' + otherfiat.toLowerCase();
           var Otherprice = response.body[0][newdata];
           var sign = '฿';
-          var fixamount = 2;
+          var fixamount = 4;
         }
         if (otherfiat == 'TRY' || otherfiat == 'try') {
           var newdata = 'price_' + otherfiat.toLowerCase();
           var Otherprice = response.body[0][newdata];
           var sign = '₺';
-          var fixamount = 2;
+          var fixamount = 4;
         }
         if (otherfiat == 'TWD' || otherfiat == 'twd') {
           var newdata = 'price_' + otherfiat.toLowerCase();
           var Otherprice = response.body[0][newdata];
           var sign = 'NT$';
-          var fixamount = 2;
+          var fixamount = 4;
         }
         if (otherfiat == 'ZAR' || otherfiat == 'zar') {
           var newdata = 'price_' + otherfiat.toLowerCase();
           var Otherprice = response.body[0][newdata];
           var sign = 'R';
-          var fixamount = 2;
+          var fixamount = 4;
         }
         var myRate = Number(Otherprice);
-        needle.get('https://rvn.hash4.life/api/getmininginfo', function(
+        needle.get(explorerApiUrl + 'api/getmininginfo', function(
           error,
           response
         ) {
           if (error || response.statusCode !== 200) {
-            msg.channel.send('rvn.hash4.life API is not available');
+            msg.channel.send(explorerApiUrl + ' API is not available');
           } else {
             var data = response.body;
             var height = Number(data.blocks);
@@ -306,13 +315,16 @@ exports.hashpower = {
             const embed = {
               description: message,
               color: 7976557,
+              footer: {
+                text: 'Last Updated | ' + timestamp + ' PST'
+              },
               author: {
                 name: 'Hashing Power Calculator!',
                 icon_url: 'https://i.imgur.com/nKHVQgq.png'
               },
               fields: [
                 {
-                  name: 'RVN Rates',
+                  name: coinSymbol + ' Rates',
                   value: rvnrates,
                   inline: true
                 },

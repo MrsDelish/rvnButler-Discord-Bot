@@ -15,10 +15,43 @@
           "BOTS"
       ]
   },
-  "Channels": {
+  "General": {
+      //urls for bots!
+      "urls": {
+          "CoinName": "ravencoin",
+          "CoinSymbol": "RVN",
+          "explorerApiUrl": "https://rvn.hash4.life/",
+          "cmcUrl": "https://coinmarketcap.com/currencies/",
+          "cmcApiUrl": "https://api.coinmarketcap.com/v1/ticker/"
+      },
       //define channels for global usage
-      "mining": "405866260379992064",
-      "botspam": "409219997735452672",
+      "Channels": {
+          "mining": "405866260379992064",
+          "botspam": "409219997735452672",
+          "twitterRSS" : "424257055541690368"
+      }
+  },
+  "spamdetection": {
+      // Channels excluded from Spam Detection
+      "channels": [
+          "409219997735452672",
+          "416758389100642306",
+          "415261569912537098"
+      ],
+      "users": [
+          "244245498746241025",
+          "85600522467315712",
+          "359767877567381514"
+      ]
+  },
+  "rvntweets": {
+      "config": {
+          "consumer_key" : "your_consumer_key",
+          "consumer_secret" : "your_consumer_secret",
+          "token" : "your_access_token_key",
+          "token_secret" : "your_access_token_secret"
+      },
+      "trackers": ["rvncoin","ravencoin","ravenfam"]
   },
   "rvnCalcPrice": {
       // Main Price Bot channel for directing with help message

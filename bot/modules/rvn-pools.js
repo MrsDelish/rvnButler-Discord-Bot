@@ -3,7 +3,7 @@ const embed = new discord.RichEmbed();
 let config = require('config');
 let hasRvnPoolsChannels = require('../helpers.js').hasRvnPoolsChannels;
 let hasDediPoolsChannels = require('../helpers.js').hasDediPoolsChannels;
-let ChannelID = config.get('Channels').mining;
+let channelID = config.get('General').Channels.mining;
 
 exports.commands = [
   'pools' // command name that will be used for next lines of code below
@@ -79,7 +79,7 @@ exports.pools = {
     var messagetext = suffix.toLowerCase();
     if (!hasRvnPoolsChannels) {
       msg.channel.send(
-        'Please use <#' + ChannelID + '> or DMs to talk to pools bot.'
+        'Please use <#' + channelID + '> or DMs to talk to pools bot.'
       );
       return;
     }

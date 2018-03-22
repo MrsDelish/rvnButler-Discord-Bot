@@ -1,7 +1,7 @@
 const discord = require('discord.js');
 let inSpam = require('../helpers.js').inSpam;
 let config = require('config');
-let ChannelID = config.get('Channels').botspam;
+let channelID = config.get('General').Channels.botspam;
 
 exports.commands = [
   'serverstats' // command name that will be used for next lines of code below
@@ -45,7 +45,7 @@ exports.serverstats = {
       msg.channel.send({ embed });
     } else {
       msg.channel
-        .send('cannot use ths commad here')
+        .send('please use <#' + channelID + '> to talk to serverstats Bot')
         .then(message => message.delete(10000));
     }
   }

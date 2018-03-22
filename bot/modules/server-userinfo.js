@@ -7,7 +7,13 @@ exports.userinfo = {
   usage: '@username',
   description: 'gets a users info in the server',
   process: function(bot, msg, suffix) {
-    if (inPrivate(msg) && !hasPerms(msg)) {
+    if (inPrivate(msg)) {
+      msg.channel
+        .send('can not use this command in DMs!')
+        .then(message => message.delete(5000));
+      return;
+    }
+    if (!hasPerms(msg)) {
       msg.channel
         .send('only moderators can use this command!')
         .then(message => message.delete(5000));

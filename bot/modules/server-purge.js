@@ -32,8 +32,8 @@ exports.purge = {
           msg.channel
             .send(
               'Deletion of messages successful. \n Total messages Purged: ' +
-                newamount -
-                1
+                Number(newamount -
+                1)
             )
             .then(message => message.delete(10000));
         })

@@ -3,7 +3,9 @@ let moment = require('moment-timezone');
 let hasRvnCalcPriceChannels = require('../helpers.js').hasRvnCalcPriceChannels;
 let inPrivate = require('../helpers.js').inPrivate;
 let config = require('config');
-let ChannelID = config.get('Channels').botspam;
+let channelID = config.get('General').Channels.botspam;
+let cmcApiUrl = config.get('General').urls.cmcApiUrl;
+let coinSymbol = config.get('General').urls.CoinSymbol;
 
 exports.commands = ['price'];
 
@@ -18,7 +20,7 @@ exports.price = {
       .format('MM-DD-YYYY hh:mm a');
     if (!hasRvnCalcPriceChannels(msg) && !inPrivate(msg)) {
       msg.channel.send(
-        'Please use <#' + ChannelID + '> or DMs to talk to price bot.'
+        'Please use <#' + channelID + '> or DMs to talk to price bot.'
       );
       return;
     }
@@ -30,7 +32,7 @@ exports.price = {
           return n !== '';
         });
       if (words[0] == undefined) {
-        var currency1 = 'RVN';
+        var currency1 = coinSymbol;
       } else {
         var currency1 = words[0].toUpperCase();
       }
@@ -51,14 +53,11 @@ exports.price = {
         var amount = words[1].toUpperCase();
       }
     } else {
-      var currency1 = 'RVN';
+      var currency1 = coinSymbol;
       var currency2 = 'BTC';
       var amount = '1';
     }
-    needle.get('https://api.coinmarketcap.com/v1/ticker/?limit=0', function(
-      error,
-      response
-    ) {
+    needle.get(cmcApiUrl + '?limit=0', function(error, response) {
       if (error || response.statusCode !== 200) {
         msg.channel.send('coinmarketcap API is not available');
       } else {
@@ -177,15 +176,15 @@ exports.price = {
           return;
         }
         name = response.body[position].id;
-        apiurl = 'https://api.coinmarketcap.com/v1/ticker/' + name + '/';
-        needle.get(apiurl + '?convert=' + symbol2, function(error, response) {
+        needle.get(cmcApiUrl + name + '/' + '?convert=' + symbol2, function(
+          error,
+          response
+        ) {
           if (error || response.statusCode !== 200) {
             msg.channel.send('coinmarketcap API is not available');
           } else {
             var newdata = 'price_' + symbol2.toLowerCase();
             var price = Number(response.body[0][newdata]);
-            console.log(price);
-            console.log(amount);
             if (!fiatToAlt) {
               var newprice = price * amount;
             } else {
@@ -201,7 +200,7 @@ exports.price = {
               currency2 +
               '\n' +
               '*Updated: ' +
-              timestamp +
+              timestamp + ' PST' +
               '*';
             msg.channel.send(message);
           }

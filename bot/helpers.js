@@ -1,6 +1,7 @@
 let config = require('config');
 let permRanks = config.get('moderation');
-let spamChannels = config.get('Channels').botspam;
+let spamChannels = config.get('General').Channels.botspam;
+let ExcludedSpam = config.get('spamdetection');
 let rvnCalcPriceChannels = config.get('rvnCalcPrice');
 let rvnStatsNetworkChannels = config.get('rvnStatsNetwork');
 let rvnStatsMarketChannels = config.get('rvnStatsMarket');
@@ -20,6 +21,16 @@ exports.inPrivate = function(msg) {
 // Checks if Message was sent from a channel in spam Channel
 exports.inSpam = function(msg) {
   return spamChannels == msg.channel.id;
+};
+
+// Checks if Message was sent from a Excluded Channel
+exports.hasExcludedSpamChannels = function(msg) {
+  return ExcludedSpam.channels.includes(msg.author.id);
+};
+
+// Checks if Message was sent from a Excluded user
+exports.hasExcludedSpamUsers = function(msg) {
+  return ExcludedSpam.users.includes(msg.author.id);
 };
 
 // Checks if Message was sent from a channel in rvnCalcPrice Channels list

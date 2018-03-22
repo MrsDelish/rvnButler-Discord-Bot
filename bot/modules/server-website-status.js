@@ -2,7 +2,7 @@ let tcpp = require('tcp-ping');
 let hasServerWebsiteStatusChannels = require('../helpers.js')
   .hasServerWebsiteStatusChannels;
 let config = require('config');
-let ChannelID = config.get('Channels').botspam;
+let channelID = config.get('General').Channels.botspam;
 
 exports.commands = ['status'];
 
@@ -18,7 +18,7 @@ exports.status = {
       });
     if (!hasServerWebsiteStatusChannels) {
       msg.channel.send(
-        'Please use <#' + ChannelID + '> or DMs to talk to status/ping bot.'
+        'Please use <#' + channelID + '> or DMs to talk to status/ping bot.'
       );
       return;
     }
