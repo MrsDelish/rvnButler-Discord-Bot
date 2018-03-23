@@ -81,7 +81,7 @@ exports['8ball'] = {
       'Yeah Right',
       'You Wish',
       'You’ve Got To Be Kidding...'
-    ]
+    ];
     var doit = responses[Math.floor(responses.length * Math.random())];
     msg.channel.send(
       '<@' +

@@ -30,8 +30,12 @@ bot.on('ready', function() {
   require('./plugins.js').init();
   console.log('type ' + config.prefix + 'help in Discord for a commands list.');
   bot.user.setActivity(config.prefix + 'help');
-  bot.channels.get(LogChannel).send('Bot Activated :rocket:' +
-  '\n-------------------------------------------------\n');
+  bot.channels
+    .get(LogChannel)
+    .send(
+      'Bot Activated :rocket:' +
+        '\n-------------------------------------------------\n'
+    );
 });
 
 //initialize the commandsBot
@@ -58,22 +62,24 @@ function checkMessageForCommand(msg, isEdit) {
         ' as command'
     );
     //check if user is Online
-    if (!msg.member){
-      msg.channel.send('Please set your Discord Presence to Online to talk to the Bot!')
+    if (!msg.member) {
+      msg.channel.send(
+        'Please set your Discord Presence to Online to talk to the Bot!'
+      );
     }
     var cmdTxt = msg.content
       .split(' ')[0]
       .substring(config.prefix.length)
       .toLowerCase();
-    var suffix = msg.content
-      .substring(cmdTxt.length + config.prefix.length + 1); //add one for the ! and one for the space
+    var suffix = msg.content.substring(
+      cmdTxt.length + config.prefix.length + 1
+    ); //add one for the ! and one for the space
     if (msg.isMentioned(bot.user)) {
       try {
         cmdTxt = msg.content.split(' ')[1].toLowerCase();
-        suffix = msg.content
-          .substring(
-            bot.user.mention().length + cmdTxt.length + config.prefix.length + 1
-          );
+        suffix = msg.content.substring(
+          bot.user.mention().length + cmdTxt.length + config.prefix.length + 1
+        );
       } catch (e) {
         //no command
         msg.channel.send('Yes?');

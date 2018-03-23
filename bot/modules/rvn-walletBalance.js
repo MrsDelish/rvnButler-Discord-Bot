@@ -56,14 +56,16 @@ exports.balance = {
         msg.channel.send(explorerApiUrl + ' API is not available');
       } else {
         var data = response.body;
-        if (data.error){
+        if (data.error) {
           msg.channel.send('Error: ' + data.error);
-          return
+          return;
         }
         var balance = data.split('.');
         var description =
           'Current balance: ' +
-          numberWithCommas(balance[0]) + '.' + balance[1] +
+          numberWithCommas(balance[0]) +
+          '.' +
+          balance[1] +
           ' ' +
           coinSymbol +
           '';

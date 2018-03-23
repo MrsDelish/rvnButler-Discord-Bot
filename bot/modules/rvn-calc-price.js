@@ -200,8 +200,8 @@ exports.price = {
               currency2 +
               '\n' +
               '*Updated: ' +
-              timestamp + ' PST' +
-              '*';
+              timestamp +
+              ' PST*';
             msg.channel.send(message);
           }
         });

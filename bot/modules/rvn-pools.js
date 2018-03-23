@@ -16,65 +16,78 @@ exports.pools = {
   process: function(bot, msg, suffix) {
     let msgauthor = msg.author;
     var Pool1 =
-      '**[miningpanda](https://miningpanda.site/)** :\n' +
-      '  STRATUM-URL: stratum+tcp://miningpanda.site:3636\n' +
-      '  Extra Config: -p c=RVN\n' +
-      '  High Diff Port: 3666\n';
+      '  **[mining panda](https://miningpanda.site/)** :\n' +
+      '    STRATUM-URL: stratum+tcp://miningpanda.site:3636\n' +
+      '    Extra Config: -p c=RVN\n' +
+      '    High Diff Port: 3666\n';
     var Pool2 =
-      '**[omegapool](https://www.omegapool.cc/)** :\n' +
-      '  STRATUM-URL: stratum+tcp://omegapool.cc:8006\n';
+      '  **[omega pool](https://www.omegapool.cc/)** :\n' +
+      '    STRATUM-URL: stratum+tcp://omegapool.cc:8006\n';
     var Pool3 =
-      '**[minepool](https://www.minepool.com/)** :\n' +
-      '  STRATUM-URL: stratum+tcp://minepool.com:3636\n';
+      '  **[mine pool](https://www.minepool.com/)** :\n' +
+      '    STRATUM-URL: stratum+tcp://minepool.com:3636\n';
     var Pool4 =
-      '**[ravenminer](http://ravenminer.com/)** :\n' +
-      '  STRATUM-URL: stratum+tcp://ravenminer.com:3636\n';
+      '  **[raven miner](http://ravenminer.com/)** :\n' +
+      '    STRATUM-URL: stratum+tcp://ravenminer.com:3636\n';
     var Pool5 =
-      '**[threeeyed](http://mine.threeeyed.info/)** :\n' +
-      '  STRATUM-URL: stratum+tcp://stratum.threeeyed.info:3333\n';
+      '  **[three eyed](http://mine.threeeyed.info/)** :\n' +
+      '    STRATUM-URL: stratum+tcp://stratum.threeeyed.info:3333\n';
     var Pool6 =
-      '**[Cryptopool Party](https://cryptopool.party/)** :\n' +
-      '  STRATUM-URL: stratum+tcp://cryptopool.party:3636\n' +
-      '  Extra Config: -p c=RVN\n';
+      '  **[Crypto pool Party](https://cryptopool.party/)** :\n' +
+      '    STRATUM-URL: stratum+tcp://cryptopool.party:3636\n' +
+      '    Extra Config: -p c=RVN\n';
     var Pool7 =
-      '**[hash4 life](https://hash4.life/)** :\n' +
-      '  STRATUM-URL: stratum+tcp://hash4.life:3636\n' +
-      '  Extra Config: -p c=RVN\n';
+      '  **[hash 4 life](https://hash4.life/)** :\n' +
+      '    STRATUM-URL: stratum+tcp://hash4.life:3636\n' +
+      '    Extra Config: -p c=RVN\n';
     var Pool8 =
-      '**[krawww-miner](http://krawww-miner.eu/)** :\n' +
-      '  STRATUM-URL: stratum+tcp://krawww-miner.eu:3636\n' +
-      '  Extra Config: -p c=RVN\n';
+      '  **[krawww-miner](http://krawww-miner.eu/)** :\n' +
+      '    STRATUM-URL: stratum+tcp://krawww-miner.eu:3636\n' +
+      '    Extra Config: -p c=RVN\n';
     var Pool9 =
-      '**[Yiimp](http://yiimp.eu/)** :\n' +
-      '  STRATUM-URL: stratum+tcp://yiimp.eu:3666\n' +
-      '  Extra Config: -p c=RVN\n';
+      '  **[Yiimp](http://yiimp.eu/)** :\n' +
+      '    STRATUM-URL: stratum+tcp://yiimp.eu:3666\n' +
+      '    Extra Config: -p c=RVN\n';
     var Pool10 =
-      '**[suprnova](https://rvn.suprnova.cc/)** :\n' +
-      '  STRATUM-URL: stratum+tcp://rvn.suprnova.cc:6666\n' +
-      '  High Diff Port: 6667\n';
+      '  **[suprnova](https://rvn.suprnova.cc/)** :\n' +
+      '    STRATUM-URL: stratum+tcp://rvn.suprnova.cc:6666\n' +
+      '    High Diff Port: 6667\n';
     var Pool11 =
-      '**[masterhash](https://pool.masterhash.us)** :\n' +
-      '  STRATUM-URL: stratum+tcp://pool.masterhash.us:10023\n' +
-      '  Extra Config: -p c=RVN\n' +
-      '  Nice Hash Port: 20023\n';
+      '  **[master hash](https://pool.masterhash.us)** :\n' +
+      '    STRATUM-URL: stratum+tcp://pool.masterhash.us:10023\n' +
+      '    Extra Config: -p c=RVN\n' +
+      '    Nice Hash Port: 20023\n';
     var Pool12 =
-      '**[minersport](http://minersport.us/)** :\n' +
-      '  STRATUM-URL: stratum+tcp://minersport.us:3636\n' +
-      '  Extra Config: -p c=RVN\n';
+      '  **[the raven coin nest](https://pool.theravencoinnest.com/)** :\n' +
+      '    STRATUM-URL: stratum+tcp://pool.theravencoinnest.com:3636\n' +
+      '    Extra Config: -p c=RVN\n';
     var Pool13 =
-      '**[gorogoro](https://gorogoro.asia/)** :\n' +
-      '  STRATUM-URL: stratum+tcp://pool.gorogoro.asia:3636\n';
+      '  **[goro goro](https://gorogoro.asia/)** :\n' +
+      '    STRATUM-URL: stratum+tcp://pool.gorogoro.asia:3636\n';
     var Pool14 =
-      '**[upthehash](https://upthehash.com/)** :\n' +
-      '  STRATUM-URL: stratum+tcp://upthehash.com:3636\n' +
-      '  Alt Stratum URL: stratum+tcp://35.227.115.143:3636\n';
+      '  **[up the hash](https://upthehash.com/)** :\n' +
+      '    STRATUM-URL: stratum+tcp://upthehash.com:3636\n' +
+      '    Alt Stratum URL: stratum+tcp://35.227.115.143:3636\n';
     var Pool15 =
-      '**[iampool](https://rvn.iampool.com/)** :\n' +
-      '  STRATUM-URL: stratum+tcp://rvn.iampool.com:3333\n';
+      '  **[i am pool](https://rvn.iampool.com/)** :\n' +
+      '    STRATUM-URL: stratum+tcp://rvn.iampool.com:3333\n';
     var Pool16 =
-      '**[fubarpool](https://fubarpool.com/)** :\n' +
-      '  STRATUM-URL: stratum+tcp://fubarpool.com:3636\n' +
-      '  Extra Config: -p c=RVN\n';
+      '  **[fubar pool](https://fubarpool.com/)** :\n' +
+      '    STRATUM-URL: stratum+tcp://fubarpool.com:3636\n' +
+      '    Extra Config: -p c=RVN\n';
+    var Pool17 =
+      '  **[alt tank](http://alttank.ca/)** :\n' +
+      '    STRATUM-URL: stratum+tcp://alttank.ca:3636\n' +
+      '    Extra Config: -p c=RVN\n';
+    var Pool18 =
+      '  **[bsod](http://bsod.pw/)** :\n' +
+      '    STRATUM-URL: stratum+tcp://pool.bsod.pw:2176\n' +
+      '    Alt Stratum Url: stratum+tcp://eu1.bsod.pw:2176' +
+      '    Extra Config: -p c=RVN\n';
+    var Pool19 =
+      '  **[kwchmining](http://kwchmining.com/)** :\n' +
+      '    STRATUM-URL: stratum+tcp://kwchmining.com:3636\n' +
+      '    Extra Config: -p c=RVN\n';
     var PoolEX = '**EXAMPLE:**\n`-o STRATUM-URL:PORT -u WALLET/LOGIN`';
     var messagetext = suffix.toLowerCase();
     if (!hasRvnPoolsChannels) {
@@ -84,32 +97,42 @@ exports.pools = {
       return;
     }
     if (!messagetext) {
-      var Pools1 = Pool1 + Pool2 + Pool3 + Pool4 + Pool5 + Pool6;
-      var Pools2 = Pool7 + Pool8 + Pool9 + Pool10 + Pool11 + Pool12;
-      var Pools3 = Pool13 + Pool14 + Pool15 + Pool16 + PoolEX;
-      embed.setColor(0x4286f4);
-      embed.setAuthor(
-        'Raven Pools (Page 1 of 3)',
-        'https://i.imgur.com/ZoakSOl.png'
-      );
-      embed.setDescription(Pools1);
       msgauthor
-        .send({ embed })
+        .send(
+          '__**Raven Pools (Page 1 of 4)**__\n' +
+            Pool1 +
+            Pool2 +
+            Pool3 +
+            Pool4 +
+            Pool5 +
+            Pool6
+        )
         .then(msg => {
-          embed.setAuthor(
-            'Raven Pools (Page 2 of 3)',
-            'https://i.imgur.com/ZoakSOl.png'
+          msgauthor.send(
+            '__**Raven Pools (Page 2 of 4)**__\n' +
+              Pool7 +
+              Pool8 +
+              Pool9 +
+              Pool10 +
+              Pool11 +
+              Pool12
           );
-          embed.setDescription(Pools2);
-          msgauthor.send({ embed });
         })
         .then(msg => {
-          embed.setAuthor(
-            'Raven Pools (Page 3 of 3)',
-            'https://i.imgur.com/ZoakSOl.png'
+          msgauthor.send(
+            '__**Raven Pools (Page 3 of 4)**__\n' +
+              Pool13 +
+              Pool14 +
+              Pool15 +
+              Pool16 +
+              Pool17 +
+              Pool18
           );
-          embed.setDescription(Pools3);
-          msgauthor.send({ embed });
+        })
+        .then(msg => {
+          msgauthor.send(
+            '__**Raven Pools (Page 4 of 4)**__\n' + Pool19 + PoolEX
+          );
         });
       msg.channel
         .send('Pools list sent via DM')
@@ -357,15 +380,16 @@ exports.pools = {
         }
       }
       if (
-        messagetext == 'minersport.us' ||
-        messagetext == 'minersport us' ||
-        messagetext == 'miner sport us' ||
-        messagetext == 'minersportus' ||
-        messagetext == 'miner sport' ||
-        messagetext == 'minersport'
+        messagetext == 'pool.theravencoinnest.com' ||
+        messagetext == 'theravencoinnest.com' ||
+        messagetext == 'theravencoinnest' ||
+        messagetext == 'pool theravencoinnest com' ||
+        messagetext == 'pool theravencoinnest' ||
+        messagetext == 'the raven coin nest' ||
+        messagetext == 'raven coin nest'
       ) {
         var Pool = Pool12;
-        var Poolname = 'minersport';
+        var Poolname = 'theravencoinnest';
         if (msg.channel.id == '###') {
           embed.setAuthor(
             Poolname + ' Options',
@@ -457,6 +481,66 @@ exports.pools = {
       ) {
         var Pool = Pool16;
         var Poolname = 'fubarpool';
+        if (msg.channel.id == '###') {
+          embed.setAuthor(
+            Poolname + ' Options',
+            'https://i.imgur.com/ZoakSOl.png'
+          );
+          embed.setDescription(Pool);
+          msg.channel.send({
+            embed
+          });
+          return;
+        }
+      }
+      if (
+        messagetext == 'alttank.ca' ||
+        messagetext == 'alttank ca' ||
+        messagetext == 'alttank' ||
+        messagetext == 'alt tank'
+      ) {
+        var Pool = Pool17;
+        var Poolname = 'alttank';
+        if (msg.channel.id == '###') {
+          embed.setAuthor(
+            Poolname + ' Options',
+            'https://i.imgur.com/ZoakSOl.png'
+          );
+          embed.setDescription(Pool);
+          msg.channel.send({
+            embed
+          });
+          return;
+        }
+      }
+      if (
+        messagetext == 'bsod.pw' ||
+        messagetext == 'bsod pw' ||
+        messagetext == 'bsod'
+      ) {
+        var Pool = Pool18;
+        var Poolname = 'bsod';
+        if (msg.channel.id == '###') {
+          embed.setAuthor(
+            Poolname + ' Options',
+            'https://i.imgur.com/ZoakSOl.png'
+          );
+          embed.setDescription(Pool);
+          msg.channel.send({
+            embed
+          });
+          return;
+        }
+      }
+      if (
+        messagetext == 'kwchmining.com' ||
+        messagetext == 'kwchmining com' ||
+        messagetext == 'kwch mining' ||
+        messagetext == 'kwch mining com' ||
+        messagetext == 'kwch'
+      ) {
+        var Pool = Pool19;
+        var Poolname = 'kwchmining';
         if (msg.channel.id == '###') {
           embed.setAuthor(
             Poolname + ' Options',
