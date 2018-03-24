@@ -25,7 +25,7 @@ exports.inSpam = function(msg) {
 
 // Checks if Message was sent from a Excluded Channel
 exports.hasExcludedSpamChannels = function(msg) {
-  return ExcludedSpam.channels.includes(msg.author.id);
+  return ExcludedSpam.channels.includes(msg.channel.id);
 };
 
 // Checks if Message was sent from a Excluded user

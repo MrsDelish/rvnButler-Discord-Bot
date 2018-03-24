@@ -29,12 +29,16 @@ exports.antiSpam = function(bot) {
   const maxDuplicatesBan = 10;
 
   bot.on('message', msg => {
-    if (
-      inPrivate(msg) ||
-      msg.author.bot ||
-      hasExcludedSpamChannels(msg) ||
-      hasExcludedSpamUsers(msg)
-    ) {
+    if (inPrivate(msg)) {
+      return;
+    }
+    if (msg.author.bot) {
+      return;
+    }
+    if (hasExcludedSpamChannels(msg)) {
+      return;
+    }
+    if (hasExcludedSpamUsers(msg)) {
       return;
     }
     if (msg.author.id != bot.user.id) {
