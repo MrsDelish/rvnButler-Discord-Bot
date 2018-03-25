@@ -29,6 +29,13 @@ exports.antiSpam = function(bot) {
   const maxDuplicatesBan = 10;
 
   bot.on('message', msg => {
+    if (
+      msg.content.includes('discord.gg/') ||
+      msg.content.includes('https://discord.gg/')
+    ) {
+      message.reply('do not send invite links please!');
+      message.delete();
+    }
     if (inPrivate(msg)) {
       return;
     }
