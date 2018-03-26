@@ -18,7 +18,7 @@ exports.onUserJoin = function(bot) {
           '1. Type !tip help to interact with our Tipbot which can be used to send and receive Raven Coins (RVN). **Enable 2FA in your Discord account settings!** \n' +
           '2. Backing up your Raven wallet is your responsbility!\n' +
           '3. Are you a dev? Check out the #development channel \n' +
-          '4. Check Pinned posts in each channel #rvn-mining has link to newest miners! \n\n' +
+          '4. Check Pinned posts in each channel #rvn-mining has links to newest miners! \n\n' +
           '**Donations**\n' +
           'Development Donation Address: [RT2r9oGxQxbVE1Ji5p5iPgrqpNQLfc8ksH](https://rvn.hash4.life/address/RT2r9oGxQxbVE1Ji5p5iPgrqpNQLfc8ksH)\n' +
           '100% of collected funds will be used for things like new pools, added network tools for RVN, new mining clients, and further code development.\n\n' +
@@ -65,14 +65,12 @@ exports.onUserJoin = function(bot) {
           },
           {
             name: 'Ravencoin Wiki',
-            value:
-              '[Wiki mining](https://raven.wiki/wiki/Mining)',
+            value: '[raven.wiki mining](https://raven.wiki/wiki/Mining)',
             inline: true
           },
           {
             name: 'Community Forum',
-            value:
-              '[Forum](https://ravenforum.org/)',
+            value: '[ravenforum](https://ravenforum.org/)',
             inline: true
           }
         ],
@@ -123,21 +121,22 @@ exports.welcome = {
       embed: {
         title: '*Click here for more info about Raven!*',
         description:
-          'This community allows Raven users to interact with the team directly and for us to engage users in order to grow Ravencoin ! \n\n' +
-          '__**GROUND RULES**__\n' +
-          '1. Be respectful to other community members. Harrasment will not be tolerated \n' +
-          '2. Do not spam, advertise or post referral links \n' +
-          '3. Use appropriate channels for your discussions/questions. If you are looking for help with RAVEN, use #helpdesk, for price talk, use #rotcex_trading \n' +
-          '4. #thenest discussions should be at least somewhat related to Raven. \n\n' +
-          '__**Helpful hints & links**__\n' +
-          '1. Type !tip help to interact with our Tipbot which can be used to send and receive Raven Coins (RVN). **Enable 2FA in your Discord account settings!** \n' +
-          '2. Backing up your Raven wallet is your responsbility!\n' +
-          '3. Are you a dev? Check out the #development channel \n\n' +
-          '**Donations**\n' +
-          'Development Donation Address: [RT2r9oGxQxbVE1Ji5p5iPgrqpNQLfc8ksH](https://rvn.hash4.life/address/RT2r9oGxQxbVE1Ji5p5iPgrqpNQLfc8ksH)\n' +
-          '100% of collected funds will be used for things like new pools, added network tools for RVN, new mining clients, and further code development.\n\n' +
-          'Marketing Donation Address: [RNwtuuLL1YCCHQhwY3nAoGqNkd1LSQFA1G](https://rvn.hash4.life/address/RNwtuuLL1YCCHQhwY3nAoGqNkd1LSQFA1G)\n' +
-          '100% of collected funds will be used for things like running ads, translations, graphics, videos, and any other applicable needs.\n',
+        'This community allows Raven users to interact with the team directly and for us to engage users in order to grow Ravencoin ! \n\n' +
+        '__**GROUND RULES**__\n' +
+        '1. Be respectful to other community members. Harassment will not be tolerated \n' +
+        '2. Do not spam, advertise or post referral links \n' +
+        '3. Use appropriate channels for your discussions/questions. If you are looking for help with RAVEN, use #helpdesk, for price talk, use #market-and-price-discussion \n' +
+        '4. #thenest discussions should be at least somewhat related to Raven. \n\n' +
+        '__**Helpful hints & links**__\n' +
+        '1. Type !tip help to interact with our Tipbot which can be used to send and receive Raven Coins (RVN). **Enable 2FA in your Discord account settings!** \n' +
+        '2. Backing up your Raven wallet is your responsbility!\n' +
+        '3. Are you a dev? Check out the #development channel \n' +
+        '4. Check Pinned posts in each channel #rvn-mining has links to newest miners! \n\n' +
+        '**Donations**\n' +
+        'Development Donation Address: [RT2r9oGxQxbVE1Ji5p5iPgrqpNQLfc8ksH](https://rvn.hash4.life/address/RT2r9oGxQxbVE1Ji5p5iPgrqpNQLfc8ksH)\n' +
+        '100% of collected funds will be used for things like new pools, added network tools for RVN, new mining clients, and further code development.\n\n' +
+        'Marketing Donation Address: [RNwtuuLL1YCCHQhwY3nAoGqNkd1LSQFA1G](https://rvn.hash4.life/address/RNwtuuLL1YCCHQhwY3nAoGqNkd1LSQFA1G)\n' +
+        '100% of collected funds will be used for things like running ads, translations, graphics, videos, and any other applicable needs.\n',
         fields: [
           {
             name: 'Official Site',
@@ -175,6 +174,16 @@ exports.welcome = {
             name: 'Wallets & Miners',
             value:
               '[Github Repo](https://github.com/MSFTserver/RavenCoin-Wallet-With-Miners/releases)',
+            inline: true
+          },
+          {
+            name: 'Ravencoin Wiki',
+            value: '[raven.wiki mining](https://raven.wiki/wiki/Mining)',
+            inline: true
+          },
+          {
+            name: 'Community Forum',
+            value: '[ravenforum](https://ravenforum.org/)',
             inline: true
           }
         ],
